@@ -7,15 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		66953BBF2975B9870000539F /* StepperView.docc in Sources */ = {isa = PBXBuildFile; fileRef = 66953BBE2975B9870000539F /* StepperView.docc */; };
-		66953BC02975B9870000539F /* StepperView.h in Headers */ = {isa = PBXBuildFile; fileRef = 66953BBD2975B9870000539F /* StepperView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		66F6D6752975FE12005DFD5D /* StepperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F6D6742975FE12005DFD5D /* StepperModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		66953BBA2975B9870000539F /* StepperView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StepperView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		66953BBD2975B9870000539F /* StepperView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StepperView.h; sourceTree = "<group>"; };
-		66953BBE2975B9870000539F /* StepperView.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StepperView.docc; sourceTree = "<group>"; };
 		66F6D6742975FE12005DFD5D /* StepperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,8 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				66F6D6732975FDF3005DFD5D /* Model */,
-				66953BBD2975B9870000539F /* StepperView.h */,
-				66953BBE2975B9870000539F /* StepperView.docc */,
 			);
 			path = StepperView;
 			sourceTree = "<group>";
@@ -71,7 +65,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66953BC02975B9870000539F /* StepperView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +136,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66953BBF2975B9870000539F /* StepperView.docc in Sources */,
 				66F6D6752975FE12005DFD5D /* StepperModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
