@@ -9,12 +9,20 @@
 /* Begin PBXBuildFile section */
 		66F6D6752975FE12005DFD5D /* StepperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F6D6742975FE12005DFD5D /* StepperModel.swift */; };
 		66F8B5322976054E005AA243 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8B5312976054E005AA243 /* UIImageView.swift */; };
+		66F8B54829760711005AA243 /* StepperViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8B54329760711005AA243 /* StepperViewItem.swift */; };
+		66F8B54929760711005AA243 /* StepperViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66F8B54429760711005AA243 /* StepperViewItem.xib */; };
+		66F8B54A29760711005AA243 /* ResponseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66F8B54629760711005AA243 /* ResponseTableViewCell.xib */; };
+		66F8B54B29760711005AA243 /* ResponseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8B54729760711005AA243 /* ResponseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		66953BBA2975B9870000539F /* StepperView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StepperView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F6D6742975FE12005DFD5D /* StepperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperModel.swift; sourceTree = "<group>"; };
 		66F8B5312976054E005AA243 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		66F8B54329760711005AA243 /* StepperViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperViewItem.swift; sourceTree = "<group>"; };
+		66F8B54429760711005AA243 /* StepperViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StepperViewItem.xib; sourceTree = "<group>"; };
+		66F8B54629760711005AA243 /* ResponseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResponseTableViewCell.xib; sourceTree = "<group>"; };
+		66F8B54729760711005AA243 /* ResponseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,7 @@
 		66953BBC2975B9870000539F /* StepperView */ = {
 			isa = PBXGroup;
 			children = (
+				66F8B54229760711005AA243 /* Stepper Item View */,
 				66F8B53029760531005AA243 /* Extension */,
 				66F6D6732975FDF3005DFD5D /* Model */,
 			);
@@ -67,6 +76,25 @@
 				66F8B5312976054E005AA243 /* UIImageView.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		66F8B54229760711005AA243 /* Stepper Item View */ = {
+			isa = PBXGroup;
+			children = (
+				66F8B54529760711005AA243 /* Cell */,
+				66F8B54329760711005AA243 /* StepperViewItem.swift */,
+				66F8B54429760711005AA243 /* StepperViewItem.xib */,
+			);
+			path = "Stepper Item View";
+			sourceTree = "<group>";
+		};
+		66F8B54529760711005AA243 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				66F8B54629760711005AA243 /* ResponseTableViewCell.xib */,
+				66F8B54729760711005AA243 /* ResponseTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +165,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66F8B54A29760711005AA243 /* ResponseTableViewCell.xib in Resources */,
+				66F8B54929760711005AA243 /* StepperViewItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +177,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66F8B54B29760711005AA243 /* ResponseTableViewCell.swift in Sources */,
 				66F8B5322976054E005AA243 /* UIImageView.swift in Sources */,
+				66F8B54829760711005AA243 /* StepperViewItem.swift in Sources */,
 				66F6D6752975FE12005DFD5D /* StepperModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
