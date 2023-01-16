@@ -2,7 +2,7 @@
 //  StepperView.h
 //  StepperView
 //
-//  Created by Tarek Messadi on 16/1/2023.
+//  Created by Aziz Hamadi on 16/1/2023.
 //
 
 #import <Foundation/Foundation.h>
