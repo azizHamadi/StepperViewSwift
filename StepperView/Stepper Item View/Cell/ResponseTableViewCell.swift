@@ -70,7 +70,7 @@ class ResponseTableViewCell: UITableViewCell {
         separatorView.isHidden = true
         switch steppertype {
             case .ranking:
-                uncheckedIcon = UIImage(systemName: "arrow.up.and.down.and.arrow.left.and.right")?.withRenderingMode(.alwaysTemplate)
+                uncheckedIcon = UIImage(named: "arrow.up.and.down.and.arrow.left.and.right")?.withRenderingMode(.alwaysTemplate)
                 separatorView.isHidden = false
             case .checkbox:
                 checkedIcon = UIImage(named: "checkbox_checked")?.withRenderingMode(.alwaysTemplate)
@@ -80,15 +80,6 @@ class ResponseTableViewCell: UITableViewCell {
                 uncheckedIcon = UIImage(named: "radiobox")?.withRenderingMode(.alwaysTemplate)
         }
         actionIcon.image = uncheckedIcon
-    }
-    func set(response: Response?) {
-        if response?.responseImage?.isEmpty ?? true {
-            imageResponseView.isHidden = true
-        } else {
-            imageResponseView.isHidden = false
-            imageResponse.image = UIImage(named: response?.responseImage ?? "")
-        }
-        textResponse.text = response?.responseText
     }
     func toggleItemAction() {
         UIImpactFeedbackGenerator.init(style: .medium).impactOccurred()
