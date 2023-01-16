@@ -13,6 +13,7 @@
 		66F8B54929760711005AA243 /* StepperViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66F8B54429760711005AA243 /* StepperViewItem.xib */; };
 		66F8B54A29760711005AA243 /* ResponseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66F8B54629760711005AA243 /* ResponseTableViewCell.xib */; };
 		66F8B54B29760711005AA243 /* ResponseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8B54729760711005AA243 /* ResponseTableViewCell.swift */; };
+		66F8B55129760A55005AA243 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F8B55029760A55005AA243 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		66F8B54429760711005AA243 /* StepperViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StepperViewItem.xib; sourceTree = "<group>"; };
 		66F8B54629760711005AA243 /* ResponseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResponseTableViewCell.xib; sourceTree = "<group>"; };
 		66F8B54729760711005AA243 /* ResponseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTableViewCell.swift; sourceTree = "<group>"; };
+		66F8B55029760A55005AA243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				66F8B54229760711005AA243 /* Stepper Item View */,
 				66F8B53029760531005AA243 /* Extension */,
 				66F6D6732975FDF3005DFD5D /* Model */,
+				66F8B55029760A55005AA243 /* Assets.xcassets */,
 			);
 			path = StepperView;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66F8B54A29760711005AA243 /* ResponseTableViewCell.xib in Resources */,
+				66F8B55129760A55005AA243 /* Assets.xcassets in Resources */,
 				66F8B54929760711005AA243 /* StepperViewItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
