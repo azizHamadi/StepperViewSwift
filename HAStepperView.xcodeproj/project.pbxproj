@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		66953BBA2975B9870000539F /* StepperView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StepperView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66953BBA2975B9870000539F /* HAStepperView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HAStepperView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F6D6742975FE12005DFD5D /* StepperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperModel.swift; sourceTree = "<group>"; };
 		66F8B5312976054E005AA243 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		66F8B54329760711005AA243 /* StepperViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperViewItem.swift; sourceTree = "<group>"; };
@@ -43,7 +43,7 @@
 		66953BB02975B9870000539F = {
 			isa = PBXGroup;
 			children = (
-				66953BBC2975B9870000539F /* StepperView */,
+				66953BBC2975B9870000539F /* HAStepperView */,
 				66953BBB2975B9870000539F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,12 +51,12 @@
 		66953BBB2975B9870000539F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				66953BBA2975B9870000539F /* StepperView.framework */,
+				66953BBA2975B9870000539F /* HAStepperView.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		66953BBC2975B9870000539F /* StepperView */ = {
+		66953BBC2975B9870000539F /* HAStepperView */ = {
 			isa = PBXGroup;
 			children = (
 				66F8B54229760711005AA243 /* Stepper Item View */,
@@ -65,7 +65,7 @@
 				66F8B55229760C33005AA243 /* Stepper.swift */,
 				66F8B55029760A55005AA243 /* Assets.xcassets */,
 			);
-			path = StepperView;
+			path = HAStepperView;
 			sourceTree = "<group>";
 		};
 		66F6D6732975FDF3005DFD5D /* Model */ = {
@@ -116,9 +116,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		66953BB92975B9870000539F /* StepperView */ = {
+		66953BB92975B9870000539F /* HAStepperView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66953BC32975B9870000539F /* Build configuration list for PBXNativeTarget "StepperView" */;
+			buildConfigurationList = 66953BC32975B9870000539F /* Build configuration list for PBXNativeTarget "HAStepperView" */;
 			buildPhases = (
 				66953BB52975B9870000539F /* Headers */,
 				66953BB62975B9870000539F /* Sources */,
@@ -129,9 +129,9 @@
 			);
 			dependencies = (
 			);
-			name = StepperView;
+			name = HAStepperView;
 			productName = StepperView;
-			productReference = 66953BBA2975B9870000539F /* StepperView.framework */;
+			productReference = 66953BBA2975B9870000539F /* HAStepperView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -148,7 +148,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 66953BB42975B9870000539F /* Build configuration list for PBXProject "StepperView" */;
+			buildConfigurationList = 66953BB42975B9870000539F /* Build configuration list for PBXProject "HAStepperView" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -161,7 +161,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				66953BB92975B9870000539F /* StepperView */,
+				66953BB92975B9870000539F /* HAStepperView */,
 			);
 		};
 /* End PBXProject section */
@@ -380,7 +380,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		66953BB42975B9870000539F /* Build configuration list for PBXProject "StepperView" */ = {
+		66953BB42975B9870000539F /* Build configuration list for PBXProject "HAStepperView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66953BC12975B9870000539F /* Debug */,
@@ -389,7 +389,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66953BC32975B9870000539F /* Build configuration list for PBXNativeTarget "StepperView" */ = {
+		66953BC32975B9870000539F /* Build configuration list for PBXNativeTarget "HAStepperView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66953BC42975B9870000539F /* Debug */,
