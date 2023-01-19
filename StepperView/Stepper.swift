@@ -36,6 +36,17 @@ protocol StepperDelegate: AnyObject {
             addSubview(contentView)
             contentView.frame = self.bounds
             contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            scrollView = UIScrollView(frame: self.bounds)
+            contentView.addSubview(scrollView)
+            scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            mainStackView = UIStackView()
+            scrollView.addSubview(mainStackView)
+            mainStackView.translatesAutoresizingMaskIntoConstraints = false
+            mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+            mainStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+            mainStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+            mainStackView.bottomAnchor.constraint(greaterThanOrEqualTo: scrollView.bottomAnchor).isActive = true
+            mainStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         }
     }
     override func prepareForInterfaceBuilder() {
@@ -73,7 +84,7 @@ protocol StepperDelegate: AnyObject {
         }
         return stepperViewItem
     }
-    @IBOutlet weak var scrollView: UIScrollView! {
+    var scrollView: UIScrollView! {
         didSet {
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -82,9 +93,9 @@ protocol StepperDelegate: AnyObject {
             scrollView.addGestureRecognizer(tap)
         }
     }
-    @IBOutlet weak var mainStackView: UIStackView! {
+    var mainStackView: UIStackView! {
         didSet {
-            
+            mainStackView.axis = .vertical
         }
     }
     @IBInspectable var widthLinearStepperView: Int = 3
@@ -115,9 +126,9 @@ protocol StepperDelegate: AnyObject {
             }
         }
     }
-    var titleFont: UIFont = UIFont(name: "Futura Medium", size: 20)!
+    var titleFont: UIFont = .systemFont(ofSize: 20)
     var titleColor: UIColor = .black
-    var descriptionFont: UIFont = UIFont(name: "Futura Medium", size: 17)!
+    var descriptionFont: UIFont = .systemFont(ofSize: 17)
     var descriptionColor: UIColor = .darkGray
     var actionIconColor: UIColor = .systemBlue
     private var isDefaultCircleColor = true

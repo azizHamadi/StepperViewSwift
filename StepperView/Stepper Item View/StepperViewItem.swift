@@ -92,9 +92,9 @@ class StepperViewItem: UIView {
     @IBOutlet weak var widthLinearStepperView: NSLayoutConstraint!
     @IBOutlet weak var hightResponseTableView: NSLayoutConstraint!
     var isCustomStepperView = false
-    var titleFont = UIFont(name: "Futura Medium", size: 20) {
+    var titleFont: UIFont = .systemFont(ofSize: 20) {
         didSet {
-            questionTitle.font = titleFont!
+            questionTitle.font = titleFont
         }
     }
     var titleColor: UIColor = .black {
@@ -102,7 +102,7 @@ class StepperViewItem: UIView {
             questionTitle.textColor = titleColor
         }
     }
-    var descriptionFont = UIFont(name: "Futura Medium", size: 17) {
+    var descriptionFont: UIFont = .systemFont(ofSize: 17) {
         didSet {
             questionDescription.font = descriptionFont
         }
