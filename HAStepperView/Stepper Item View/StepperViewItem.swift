@@ -43,6 +43,7 @@ class StepperViewItem: UIView {
     @IBOutlet weak var questionNumber: UILabel!
     @IBOutlet weak var checkMark: UIImageView! {
         didSet {
+            checkMark.layoutIfNeeded()
             checkMark.tintColor = .systemGray6
         }
     }
