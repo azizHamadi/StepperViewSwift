@@ -80,7 +80,7 @@ class StepperViewItem: UIView {
     @IBOutlet weak var responseTextView: UITextView!
     @IBOutlet weak var responseTableView: UITableView! {
         didSet {
-            responseTableView.register(UINib(nibName: "ResponseTableViewCell", bundle: nil), forCellReuseIdentifier: "ResponseTableViewCell")
+            responseTableView.register(UINib(nibName: "ResponseTableViewCell", bundle: Bundle(for: StepperViewItem.self)), forCellReuseIdentifier: "ResponseTableViewCell")
             responseTableView.dataSource = self
             responseTableView.delegate = self
             responseTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
@@ -186,7 +186,7 @@ class StepperViewItem: UIView {
             questionTitle.alpha = isSelected ? 1 : ( isPending ? 0.3 : 0.5)
         }
     }
-    var iconCercleStepper: UIImage = UIImage(systemName: "checkmark")!.withRenderingMode(.alwaysTemplate) {
+    var iconCercleStepper: UIImage = UIImage(named: "checkmark", in: Bundle(for: StepperViewItem.self), compatibleWith: nil)!.withRenderingMode(.alwaysTemplate) {
         didSet {
             checkMark.image = iconCercleStepper
             checkMark.image = checkMark.image?.withRenderingMode(.alwaysTemplate)

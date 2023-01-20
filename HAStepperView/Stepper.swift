@@ -7,22 +7,22 @@
 
 import UIKit
 
-protocol StepperDataSource: AnyObject {
+public protocol StepperDataSource: AnyObject {
     func numberOfRowsInStepper() -> Int
     func stepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> UIView?
     func stepper(dataForRowAtIndexPath indexPath: NSIndexPath) -> StepperModel.viewModel?
     func titleStepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> String?
 }
-protocol StepperDelegate: AnyObject {
+public protocol StepperDelegate: AnyObject {
     func resultStepper(dataAtIndexPath indexPath: NSIndexPath, data: StepperModel.requestModel?)
     func stepperCustomView(viewAtIndexPath indexPath: NSIndexPath, view: UIView?)
 }
-@IBDesignable class Stepper: UIView {
+@IBDesignable public class Stepper: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
     }
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         self.commonInit()
     }
@@ -31,25 +31,21 @@ protocol StepperDelegate: AnyObject {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     private func commonInit() {
-        let bundle = Bundle.init(for: Stepper.self)
-        if let viewToAdd = bundle.loadNibNamed("Stepper", owner: self, options: nil), let contentView = viewToAdd.first as? UIView {
-            addSubview(contentView)
-            contentView.frame = self.bounds
-            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            scrollView = UIScrollView(frame: self.bounds)
-            contentView.addSubview(scrollView)
-            scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            mainStackView = UIStackView()
-            scrollView.addSubview(mainStackView)
-            mainStackView.translatesAutoresizingMaskIntoConstraints = false
-            mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-            mainStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-            mainStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-            mainStackView.bottomAnchor.constraint(greaterThanOrEqualTo: scrollView.bottomAnchor).isActive = true
-            mainStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        }
+        self.frame = self.bounds
+        self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        scrollView = UIScrollView(frame: self.bounds)
+        self.addSubview(scrollView)
+        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mainStackView = UIStackView()
+        scrollView.addSubview(mainStackView)
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        mainStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        mainStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        mainStackView.bottomAnchor.constraint(greaterThanOrEqualTo: scrollView.bottomAnchor).isActive = true
+        mainStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
     }
-    override func prepareForInterfaceBuilder() {
+    open override func prepareForInterfaceBuilder() {
         let data: [StepperModel.viewModel] = [
             StepperModel.viewModel(title: "Stepper Title 1", type: .textarea),
             StepperModel.viewModel(title: "Stepper Title 2", type: .textarea, resourceConfig:
@@ -118,7 +114,7 @@ protocol StepperDelegate: AnyObject {
         }
     }
     @IBInspectable var enableCircleInteraction: Bool = true
-    @IBInspectable var iconCercleView: UIImage = UIImage(named: "checkmark")!
+    @IBInspectable var iconCercleView: UIImage = UIImage(named: "checkmark", in: Bundle(for: Stepper.self), compatibleWith: nil)!
     @IBInspectable var iconColorCercle: UIColor = .white
     @IBInspectable var isCustomStepperView: Bool = false {
         didSet {
@@ -126,15 +122,15 @@ protocol StepperDelegate: AnyObject {
             }
         }
     }
-    var titleFont: UIFont = .systemFont(ofSize: 20)
-    var titleColor: UIColor = .black
-    var descriptionFont: UIFont = .systemFont(ofSize: 17)
-    var descriptionColor: UIColor = .darkGray
-    var actionIconColor: UIColor = .systemBlue
+    public var titleFont: UIFont = .systemFont(ofSize: 20)
+    public var titleColor: UIColor = .black
+    public var descriptionFont: UIFont = .systemFont(ofSize: 17)
+    public var descriptionColor: UIColor = .darkGray
+    public var actionIconColor: UIColor = .systemBlue
     private var isDefaultCircleColor = true
     private var isCustomRadius = false
 
-    weak var dataSource: StepperDataSource? {
+    public weak var dataSource: StepperDataSource? {
         didSet {
             mainStackView.arrangedSubviews.forEach { view in
                 view.removeFromSuperview()
@@ -145,7 +141,7 @@ protocol StepperDelegate: AnyObject {
             }
         }
     }
-    weak var delegate: StepperDelegate?
+    public weak var delegate: StepperDelegate?
     private var numberOfRowsInStepper: Int = 0
     private var selectedStepperIndex = 1
     
@@ -189,13 +185,13 @@ protocol StepperDelegate: AnyObject {
         stepperViewItem.circleStepperView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleStepperView(_:))))
         return stepperViewItem
     }
-    func numberOfStepper() -> Int {
+    public func numberOfStepper() -> Int {
         return numberOfRowsInStepper
     }
-    func selectedIndex() -> Int {
+    public func selectedIndex() -> Int {
         return selectedStepperIndex
     }
-    func customViewFromStepper(indexPath: IndexPath) -> UIView? {
+    public func customViewFromStepper(indexPath: IndexPath) -> UIView? {
         return (mainStackView.arrangedSubviews[indexPath.row] as! StepperViewItem).customViewFromStepper()
     }
     @objc func toggleStepperView(_ sender: UITapGestureRecognizer) {
@@ -214,7 +210,7 @@ protocol StepperDelegate: AnyObject {
             }
         }
     }
-    func nextStepper() {
+    public func nextStepper() {
         if selectedStepperIndex < numberOfRowsInStepper {
             if isCustomStepperView {
                 stepperCustomView(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
@@ -237,7 +233,7 @@ protocol StepperDelegate: AnyObject {
             }
         }
     }
-    func previousStepper() {
+    public func previousStepper() {
         if selectedStepperIndex-1 > 0 {
             selectedStepperIndex -= 1
             if isCustomStepperView {
@@ -251,7 +247,7 @@ protocol StepperDelegate: AnyObject {
             (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).toggle(isSelected: true, isPending: false, isFinished: false)
         }
     }
-    func isLastStepper() -> Bool {
+    public func isLastStepper() -> Bool {
         return selectedStepperIndex == numberOfRowsInStepper
     }
     private func resultDataForStepper(indexPath: NSIndexPath, data: StepperModel.requestModel?) {
