@@ -9,8 +9,8 @@ import UIKit
 
 public protocol StepperDataSource: AnyObject {
     func numberOfRowsInStepper() -> Int
-    func stepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> UIView?
     func stepper(dataForRowAtIndexPath indexPath: NSIndexPath) -> StepperModel.viewModel?
+    func stepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> UIView?
     func titleStepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> String?
 }
 public protocol StepperDelegate: AnyObject {

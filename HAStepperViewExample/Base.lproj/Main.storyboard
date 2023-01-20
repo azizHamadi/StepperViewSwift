@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sFn-eL-BcN">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="cBP-OT-op4">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="sFn-eL-BcN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="85p-du-tqY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="e42-5b-bhl" kind="relationship" relationship="rootViewController" id="Qta-8e-uwU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gjL-YN-AGs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="46"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="YjW-1P-FW4">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="e42-5b-bhl" customClass="ViewController" customModule="HAStepperViewExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DUb-tN-kSf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ri3-kh-Kyn">
+                                <rect key="frame" x="104" y="179" width="185" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Default Stepper View"/>
+                                <connections>
+                                    <action selector="toDefaultStepperAction:" destination="e42-5b-bhl" eventType="touchUpInside" id="U3k-2J-Jy6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8M-Ua-jqc">
+                                <rect key="frame" x="101.66666666666669" y="277" width="190" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Custom Stepper View"/>
+                                <connections>
+                                    <action selector="toCustomStepperAction:" destination="e42-5b-bhl" eventType="touchUpInside" id="0bv-i3-d1H"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LvW-ee-WtP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="I8M-Ua-jqc" firstAttribute="top" secondItem="ri3-kh-Kyn" secondAttribute="bottom" constant="63" id="Gql-er-ieS"/>
+                            <constraint firstItem="ri3-kh-Kyn" firstAttribute="top" secondItem="LvW-ee-WtP" secondAttribute="top" constant="120" id="Jzt-ff-Gg4"/>
+                            <constraint firstItem="ri3-kh-Kyn" firstAttribute="centerX" secondItem="LvW-ee-WtP" secondAttribute="centerX" id="b5Q-S2-ay7"/>
+                            <constraint firstItem="I8M-Ua-jqc" firstAttribute="centerX" secondItem="LvW-ee-WtP" secondAttribute="centerX" id="bGt-nV-whh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Q8I-vD-Hp2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SQE-TB-9Iq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1346" y="46"/>
+        </scene>
+        <!--Custom Example View Controller-->
+        <scene sceneID="f5S-Be-56e">
+            <objects>
+                <viewController storyboardIdentifier="CustomExampleViewController" id="dTA-HX-SCl" customClass="CustomExampleViewController" customModule="HAStepperViewExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="szr-hz-0mO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akn-JR-mng" customClass="Stepper" customModule="HAStepperView">
+                                <rect key="frame" x="0.0" y="109" width="393" height="633"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCustomStepperView" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SOT-WI-7tW">
+                                <rect key="frame" x="25" y="753" width="343" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEJ-e6-Je2">
+                                        <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Précédent" cornerStyle="capsule"/>
+                                        <connections>
+                                            <action selector="previousAction:" destination="dTA-HX-SCl" eventType="touchUpInside" id="RdE-lQ-1Ql"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bro-FY-7if">
+                                        <rect key="frame" x="181.66666666666663" y="0.0" width="161.33333333333337" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Suivant" cornerStyle="capsule"/>
+                                        <connections>
+                                            <action selector="nextAction:" destination="dTA-HX-SCl" eventType="touchUpInside" id="H93-cP-dwa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8M3-R0-gnT"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjV-z2-6JQ">
+                                <rect key="frame" x="15.999999999999996" y="59" width="61.666666666666657" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <action selector="backAction:" destination="dTA-HX-SCl" eventType="touchUpInside" id="OMJ-GM-y0y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oNT-hS-85v"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bjV-z2-6JQ" firstAttribute="leading" secondItem="oNT-hS-85v" secondAttribute="leading" constant="16" id="ExB-4k-T4E"/>
+                            <constraint firstItem="akn-JR-mng" firstAttribute="top" secondItem="bjV-z2-6JQ" secondAttribute="bottom" constant="15" id="Fxo-Mf-GxK"/>
+                            <constraint firstItem="bjV-z2-6JQ" firstAttribute="top" secondItem="oNT-hS-85v" secondAttribute="top" id="KR5-iE-cFb"/>
+                            <constraint firstItem="SOT-WI-7tW" firstAttribute="leading" secondItem="oNT-hS-85v" secondAttribute="leading" constant="25" id="Llk-0f-jqE"/>
+                            <constraint firstItem="akn-JR-mng" firstAttribute="trailing" secondItem="oNT-hS-85v" secondAttribute="trailing" id="dRU-rO-CrC"/>
+                            <constraint firstItem="oNT-hS-85v" firstAttribute="bottom" secondItem="SOT-WI-7tW" secondAttribute="bottom" constant="25" id="fhC-XR-w8a"/>
+                            <constraint firstItem="akn-JR-mng" firstAttribute="top" secondItem="oNT-hS-85v" secondAttribute="top" constant="50" id="jbP-Ph-qLx"/>
+                            <constraint firstItem="oNT-hS-85v" firstAttribute="bottom" secondItem="akn-JR-mng" secondAttribute="bottom" constant="76" id="lWr-Dt-6fz"/>
+                            <constraint firstItem="oNT-hS-85v" firstAttribute="trailing" secondItem="SOT-WI-7tW" secondAttribute="trailing" constant="25" id="s2T-tX-PiQ"/>
+                            <constraint firstItem="akn-JR-mng" firstAttribute="leading" secondItem="oNT-hS-85v" secondAttribute="leading" id="swy-lj-Biu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="stepperView" destination="akn-JR-mng" id="3Zn-Kn-vxw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0WE-z6-0i0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3082" y="46"/>
+        </scene>
+        <!--Default Example View Controller-->
+        <scene sceneID="eek-ll-1e2">
+            <objects>
+                <viewController storyboardIdentifier="DefaultExampleViewController" id="UwO-72-GKf" customClass="DefaultExampleViewController" customModule="HAStepperViewExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XP4-3R-h8n">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGw-n6-SbG" customClass="Stepper" customModule="HAStepperView">
+                                <rect key="frame" x="0.0" y="109" width="393" height="633"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lex-oK-Mft">
+                                <rect key="frame" x="25" y="753" width="343" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScV-6p-Nck">
+                                        <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Précédent" cornerStyle="capsule"/>
+                                        <connections>
+                                            <action selector="previousAction:" destination="UwO-72-GKf" eventType="touchUpInside" id="lWn-Rz-yM6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8R-tm-AFa">
+                                        <rect key="frame" x="181.66666666666663" y="0.0" width="161.33333333333337" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Suivant" cornerStyle="capsule"/>
+                                        <connections>
+                                            <action selector="nextAction:" destination="UwO-72-GKf" eventType="touchUpInside" id="Tow-Xn-75l"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Fa9-B8-gZd"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Cg-SE-irp">
+                                <rect key="frame" x="15.999999999999996" y="59" width="61.666666666666657" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <action selector="backAction:" destination="UwO-72-GKf" eventType="touchUpInside" id="neY-tP-7CD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="N30-eX-jjo"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cGw-n6-SbG" firstAttribute="trailing" secondItem="N30-eX-jjo" secondAttribute="trailing" id="1M5-GB-07y"/>
+                            <constraint firstItem="N30-eX-jjo" firstAttribute="trailing" secondItem="Lex-oK-Mft" secondAttribute="trailing" constant="25" id="90H-00-KfZ"/>
+                            <constraint firstItem="cGw-n6-SbG" firstAttribute="top" secondItem="6Cg-SE-irp" secondAttribute="bottom" constant="15" id="TfI-8e-xEw"/>
+                            <constraint firstItem="N30-eX-jjo" firstAttribute="bottom" secondItem="cGw-n6-SbG" secondAttribute="bottom" constant="76" id="WOo-AY-1e8"/>
+                            <constraint firstItem="6Cg-SE-irp" firstAttribute="top" secondItem="N30-eX-jjo" secondAttribute="top" id="dEN-qz-Q8N"/>
+                            <constraint firstItem="cGw-n6-SbG" firstAttribute="leading" secondItem="N30-eX-jjo" secondAttribute="leading" id="kEj-fk-LOC"/>
+                            <constraint firstItem="cGw-n6-SbG" firstAttribute="top" secondItem="N30-eX-jjo" secondAttribute="top" constant="50" id="n4G-g7-noQ"/>
+                            <constraint firstItem="N30-eX-jjo" firstAttribute="bottom" secondItem="Lex-oK-Mft" secondAttribute="bottom" constant="25" id="sCc-g8-gaT"/>
+                            <constraint firstItem="6Cg-SE-irp" firstAttribute="leading" secondItem="N30-eX-jjo" secondAttribute="leading" constant="16" id="teB-LA-snb"/>
+                            <constraint firstItem="Lex-oK-Mft" firstAttribute="leading" secondItem="N30-eX-jjo" secondAttribute="leading" constant="25" id="wNX-mP-feP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="stepperView" destination="cGw-n6-SbG" id="QbM-BI-tNH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uko-Kl-KWx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2305" y="46"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
