@@ -99,33 +99,128 @@ public protocol DefaultStepperDelegate: AnyObject {
             mainStackView.axis = .vertical
         }
     }
-    @IBInspectable var widthLinearStepperView: Int = 3
-    @IBInspectable var heightCircleView: Int = 42
-    @IBInspectable var radiusCercleView: CGFloat = 21 {
+    @IBInspectable public var widthLinearStepperView: Int = 3 {
+        didSet {
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.widthLinearStepper = widthLinearStepperView
+                }
+            }
+        }
+    }
+    @IBInspectable public var heightCircleView: Int = 42 {
+        didSet {
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.heightCircleView = heightCircleView
+                }
+            }
+        }
+    }
+    @IBInspectable public var radiusCercleView: CGFloat = 21 {
         didSet {
             isCustomRadius = true
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.radiusCercleView = radiusCercleView
+                }
+            }
         }
     }
-    @IBInspectable var circleColor: UIColor = .systemBlue {
+    @IBInspectable public var circleColor: UIColor = .systemBlue {
         didSet {
             isDefaultCircleColor = false
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.circleColor = circleColor
+                }
+            }
         }
     }
-    @IBInspectable var borderCircleColor: UIColor = .systemBlue {
+    @IBInspectable public var borderCircleColor: UIColor = .systemBlue {
         didSet {
             if isDefaultCircleColor {
                 circleColor = borderCircleColor
             }
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.circleBorderColor = borderCircleColor
+                }
+            }
         }
     }
-    @IBInspectable var enableCircleInteraction: Bool = true
-    @IBInspectable var iconCercleView: UIImage = UIImage(named: "checkmark", in: Bundle(for: Stepper.self), compatibleWith: nil)!
-    @IBInspectable var iconColorCercle: UIColor = .white
-    public var titleFont: UIFont = .systemFont(ofSize: 20)
-    public var titleColor: UIColor = .black
-    public var descriptionFont: UIFont = .systemFont(ofSize: 17)
-    public var descriptionColor: UIColor = .darkGray
-    public var actionIconColor: UIColor = .systemBlue
+    @IBInspectable public var enableCircleInteraction: Bool = true {
+        didSet {
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.isUserInteractionEnabled = enableCircleInteraction
+                }
+            }
+        }
+    }
+    @IBInspectable public var iconCercleView: UIImage = UIImage(named: "checkmark", in: Bundle(for: Stepper.self), compatibleWith: nil)! {
+        didSet {
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.iconCercleStepper = iconCercleView
+                }
+            }
+        }
+    }
+    @IBInspectable public var iconColorCercle: UIColor = .white {
+        didSet {
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.iconColorCercleStepper = iconColorCercle
+                }
+            }
+        }
+    }
+    public var titleFont: UIFont = .systemFont(ofSize: 20) {
+        didSet {
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.titleFont = titleFont
+                }
+            }
+        }
+    }
+    public var titleColor: UIColor = .black {
+        didSet {
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.titleColor = titleColor
+                }
+            }
+        }
+    }
+    public var descriptionFont: UIFont = .systemFont(ofSize: 17) {
+        didSet {
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.descriptionFont = descriptionFont
+                }
+            }
+        }
+    }
+    public var descriptionColor: UIColor = .darkGray {
+        didSet {
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.descriptionColor = descriptionColor
+                }
+            }
+        }
+    }
+    public var actionIconColor: UIColor = .systemBlue {
+        didSet {
+            if numberOfRowsInStepper > 0 {
+                for i in 0...numberOfRowsInStepper-1 {
+                    (mainStackView.arrangedSubviews[i] as? StepperViewItem)?.actionIconColor = actionIconColor
+                }
+            }
+        }
+    }
     private var isDefaultCircleColor = true
     private var isCustomRadius = false
 
@@ -191,8 +286,10 @@ public protocol DefaultStepperDelegate: AnyObject {
             view.removeFromSuperview()
         }
         selectedStepperIndex = 1
-        for i in 0...numberOfRowsInStepper-1 {
-            mainStackView.addArrangedSubview(createStepperView(index: i))
+        if numberOfRowsInStepper > 0 {
+            for i in 0...numberOfRowsInStepper-1 {
+                mainStackView.addArrangedSubview(createStepperView(index: i))
+            }
         }
     }
     public func numberOfStepper() -> Int {
@@ -221,40 +318,44 @@ public protocol DefaultStepperDelegate: AnyObject {
         }
     }
     public func nextStepper() {
-        if selectedStepperIndex < numberOfRowsInStepper {
-            if customDataSource != nil {
-                stepperCustomView(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
-                                     view: (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).customViewFromStepper())
+        if numberOfRowsInStepper > 0 {
+            if selectedStepperIndex < numberOfRowsInStepper {
+                if customDataSource != nil {
+                    stepperCustomView(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
+                                         view: (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).customViewFromStepper())
+                } else {
+                    resultDataForStepper(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
+                                         data: (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).stepperResultData())
+                }
+                (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).toggle(isSelected: false, isPending: false, isFinished: true)
+                (mainStackView.arrangedSubviews[selectedStepperIndex] as! StepperViewItem).toggle(isSelected: true, isPending: false, isFinished: false)
+                selectedStepperIndex += 1
             } else {
-                resultDataForStepper(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
-                                     data: (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).stepperResultData())
-            }
-            (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).toggle(isSelected: false, isPending: false, isFinished: true)
-            (mainStackView.arrangedSubviews[selectedStepperIndex] as! StepperViewItem).toggle(isSelected: true, isPending: false, isFinished: false)
-            selectedStepperIndex += 1
-        } else {
-            (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).toggle(isSelected: true, isPending: false, isFinished: true)
-            if customDataSource != nil {
-                stepperCustomView(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
-                                     view: (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).customViewFromStepper())
-            } else {
-                resultDataForStepper(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
-                                     data: (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).stepperResultData())
+                (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).toggle(isSelected: true, isPending: false, isFinished: true)
+                if customDataSource != nil {
+                    stepperCustomView(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
+                                         view: (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).customViewFromStepper())
+                } else {
+                    resultDataForStepper(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
+                                         data: (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).stepperResultData())
+                }
             }
         }
     }
     public func previousStepper() {
-        if selectedStepperIndex-1 > 0 {
-            selectedStepperIndex -= 1
-            if customDataSource != nil {
-                stepperCustomView(indexPath: NSIndexPath(row: selectedStepperIndex, section: 0),
-                                     view: (mainStackView.arrangedSubviews[selectedStepperIndex] as! StepperViewItem).customViewFromStepper())
-            } else {
-                resultDataForStepper(indexPath: NSIndexPath(row: selectedStepperIndex, section: 0),
-                                     data: (mainStackView.arrangedSubviews[selectedStepperIndex] as! StepperViewItem).stepperResultData())
+        if numberOfRowsInStepper > 0 {
+            if selectedStepperIndex-1 > 0 {
+                selectedStepperIndex -= 1
+                if customDataSource != nil {
+                    stepperCustomView(indexPath: NSIndexPath(row: selectedStepperIndex, section: 0),
+                                         view: (mainStackView.arrangedSubviews[selectedStepperIndex] as! StepperViewItem).customViewFromStepper())
+                } else {
+                    resultDataForStepper(indexPath: NSIndexPath(row: selectedStepperIndex, section: 0),
+                                         data: (mainStackView.arrangedSubviews[selectedStepperIndex] as! StepperViewItem).stepperResultData())
+                }
+                (mainStackView.arrangedSubviews[selectedStepperIndex] as! StepperViewItem).toggle(isSelected: false, isPending: false, isFinished: true)
+                (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).toggle(isSelected: true, isPending: false, isFinished: false)
             }
-            (mainStackView.arrangedSubviews[selectedStepperIndex] as! StepperViewItem).toggle(isSelected: false, isPending: false, isFinished: true)
-            (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).toggle(isSelected: true, isPending: false, isFinished: false)
         }
     }
     public func isLastStepper() -> Bool {
