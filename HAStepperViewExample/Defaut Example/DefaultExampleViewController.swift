@@ -37,8 +37,8 @@ class DefaultExampleViewController: UIViewController {
     @IBOutlet var stepperView: Stepper! {
         didSet {
             stepperView.actionIconColor = .darkGray
-            stepperView.dataSource = self
-            stepperView.delegate = self
+            stepperView.defaultDataSource = self
+            stepperView.defaultDelegate = self
         }
     }
     
@@ -49,6 +49,7 @@ class DefaultExampleViewController: UIViewController {
     @IBAction func nextAction(_ sender: Any) {
         stepperView.nextStepper()
         if stepperView.isLastStepper() {
+            stepperView.reloadData()
             print("last stepper item")
         }
     }
@@ -57,7 +58,7 @@ class DefaultExampleViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
-extension DefaultExampleViewController: StepperDataSource {
+extension DefaultExampleViewController: DefaultStepperDataSource {
     func numberOfRowsInStepper() -> Int {
         return data.count
     }
@@ -65,20 +66,10 @@ extension DefaultExampleViewController: StepperDataSource {
     func stepper(dataForRowAtIndexPath indexPath: NSIndexPath) -> StepperModel.viewModel? {
         return data[indexPath.row]
     }
-    
-    func stepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> UIView? {
-        return nil
-    }
-    
-    func titleStepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> String? {
-        return nil
-    }
 }
-extension DefaultExampleViewController: StepperDelegate {
+extension DefaultExampleViewController: DefaultStepperDelegate {
     func resultStepper(dataAtIndexPath indexPath: NSIndexPath, data: StepperModel.requestModel?) {
         print("Index of default stepper data : \(indexPath.row)")
         print("data : \(data)")
     }
-    
-    func stepperCustomView(viewAtIndexPath indexPath: NSIndexPath, view: UIView?) {}
 }

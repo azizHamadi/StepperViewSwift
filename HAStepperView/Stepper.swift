@@ -7,15 +7,20 @@
 
 import UIKit
 
-public protocol StepperDataSource: AnyObject {
+public protocol CustomStepperDataSource: AnyObject {
     func numberOfRowsInStepper() -> Int
-    func stepper(dataForRowAtIndexPath indexPath: NSIndexPath) -> StepperModel.viewModel?
     func stepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> UIView?
     func titleStepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> String?
 }
-public protocol StepperDelegate: AnyObject {
+public protocol DefaultStepperDataSource: AnyObject {
+    func numberOfRowsInStepper() -> Int
+    func stepper(dataForRowAtIndexPath indexPath: NSIndexPath) -> StepperModel.viewModel?
+}
+public protocol CustomStepperDelegate: AnyObject {
+    func resultStepper(viewAtIndexPath indexPath: NSIndexPath, view: UIView?)
+}
+public protocol DefaultStepperDelegate: AnyObject {
     func resultStepper(dataAtIndexPath indexPath: NSIndexPath, data: StepperModel.requestModel?)
-    func stepperCustomView(viewAtIndexPath indexPath: NSIndexPath, view: UIView?)
 }
 @IBDesignable public class Stepper: UIView {
     override init(frame: CGRect) {
@@ -116,12 +121,6 @@ public protocol StepperDelegate: AnyObject {
     @IBInspectable var enableCircleInteraction: Bool = true
     @IBInspectable var iconCercleView: UIImage = UIImage(named: "checkmark", in: Bundle(for: Stepper.self), compatibleWith: nil)!
     @IBInspectable var iconColorCercle: UIColor = .white
-    @IBInspectable var isCustomStepperView: Bool = false {
-        didSet {
-            if !isCustomStepperView {
-            }
-        }
-    }
     public var titleFont: UIFont = .systemFont(ofSize: 20)
     public var titleColor: UIColor = .black
     public var descriptionFont: UIFont = .systemFont(ofSize: 17)
@@ -130,18 +129,20 @@ public protocol StepperDelegate: AnyObject {
     private var isDefaultCircleColor = true
     private var isCustomRadius = false
 
-    public weak var dataSource: StepperDataSource? {
+    public weak var customDataSource: CustomStepperDataSource? {
         didSet {
-            mainStackView.arrangedSubviews.forEach { view in
-                view.removeFromSuperview()
-            }
-            numberOfRowsInStepper = dataSource?.numberOfRowsInStepper() ?? 0
-            for i in 0...numberOfRowsInStepper-1 {
-                mainStackView.addArrangedSubview(createStepperView(index: i))
-            }
+            numberOfRowsInStepper = customDataSource?.numberOfRowsInStepper() ?? 0
+            reloadData()
         }
     }
-    public weak var delegate: StepperDelegate?
+    public weak var defaultDataSource: DefaultStepperDataSource? {
+        didSet {
+            numberOfRowsInStepper = defaultDataSource?.numberOfRowsInStepper() ?? 0
+            reloadData()
+        }
+    }
+    public weak var customDelegate: CustomStepperDelegate?
+    public weak var defaultDelegate: DefaultStepperDelegate?
     private var numberOfRowsInStepper: Int = 0
     private var selectedStepperIndex = 1
     
@@ -171,19 +172,28 @@ public protocol StepperDelegate: AnyObject {
         stepperViewItem.descriptionFont = descriptionFont
         stepperViewItem.descriptionColor = descriptionColor
         stepperViewItem.actionIconColor = actionIconColor
-        stepperViewItem.isCustomStepperView = isCustomStepperView
+        stepperViewItem.isCustomStepperView = customDelegate != nil
         if isCustomRadius {
             stepperViewItem.radiusCercleView = radiusCercleView
             stepperViewItem.isCustomRadius = isCustomRadius
         }
-        let view = dataSource?.stepper(cellForRowAtIndexPath: NSIndexPath(row: index, section: 0))
-        let data = dataSource?.stepper(dataForRowAtIndexPath: NSIndexPath(row: index, section: 0))
-        let title = dataSource?.titleStepper(cellForRowAtIndexPath: NSIndexPath(row: index, section: 0))
+        let view = customDataSource?.stepper(cellForRowAtIndexPath: NSIndexPath(row: index, section: 0))
+        let data = defaultDataSource?.stepper(dataForRowAtIndexPath: NSIndexPath(row: index, section: 0))
+        let title = customDataSource?.titleStepper(cellForRowAtIndexPath: NSIndexPath(row: index, section: 0))
         stepperViewItem.createStepper(stepperData: data, index: index+1, isSelected: index == 0, stepperBody: view, title: title)
         stepperViewItem.linearStepperView.isHidden = index == numberOfRowsInStepper-1
         stepperViewItem.isUserInteractionEnabled = enableCircleInteraction
         stepperViewItem.circleStepperView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleStepperView(_:))))
         return stepperViewItem
+    }
+    public func reloadData() {
+        mainStackView.arrangedSubviews.forEach { view in
+            view.removeFromSuperview()
+        }
+        selectedStepperIndex = 1
+        for i in 0...numberOfRowsInStepper-1 {
+            mainStackView.addArrangedSubview(createStepperView(index: i))
+        }
     }
     public func numberOfStepper() -> Int {
         return numberOfRowsInStepper
@@ -197,7 +207,7 @@ public protocol StepperDelegate: AnyObject {
     @objc func toggleStepperView(_ sender: UITapGestureRecognizer) {
         if let index = sender.view?.tag {
             if selectedStepperIndex != index {
-                if isCustomStepperView {
+                if customDataSource != nil {
                     stepperCustomView(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
                                          view: (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).customViewFromStepper())
                 } else {
@@ -212,7 +222,7 @@ public protocol StepperDelegate: AnyObject {
     }
     public func nextStepper() {
         if selectedStepperIndex < numberOfRowsInStepper {
-            if isCustomStepperView {
+            if customDataSource != nil {
                 stepperCustomView(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
                                      view: (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).customViewFromStepper())
             } else {
@@ -224,7 +234,7 @@ public protocol StepperDelegate: AnyObject {
             selectedStepperIndex += 1
         } else {
             (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).toggle(isSelected: true, isPending: false, isFinished: true)
-            if isCustomStepperView {
+            if customDataSource != nil {
                 stepperCustomView(indexPath: NSIndexPath(row: selectedStepperIndex-1, section: 0),
                                      view: (mainStackView.arrangedSubviews[selectedStepperIndex-1] as! StepperViewItem).customViewFromStepper())
             } else {
@@ -236,7 +246,7 @@ public protocol StepperDelegate: AnyObject {
     public func previousStepper() {
         if selectedStepperIndex-1 > 0 {
             selectedStepperIndex -= 1
-            if isCustomStepperView {
+            if customDataSource != nil {
                 stepperCustomView(indexPath: NSIndexPath(row: selectedStepperIndex, section: 0),
                                      view: (mainStackView.arrangedSubviews[selectedStepperIndex] as! StepperViewItem).customViewFromStepper())
             } else {
@@ -251,10 +261,9 @@ public protocol StepperDelegate: AnyObject {
         return selectedStepperIndex == numberOfRowsInStepper
     }
     private func resultDataForStepper(indexPath: NSIndexPath, data: StepperModel.requestModel?) {
-        delegate?.resultStepper(dataAtIndexPath: indexPath,
-                                data: data)
+        defaultDelegate?.resultStepper(dataAtIndexPath: indexPath, data: data)
     }
     private func stepperCustomView(indexPath: NSIndexPath, view: UIView?) {
-        delegate?.stepperCustomView(viewAtIndexPath: indexPath, view: view)
+        customDelegate?.resultStepper(viewAtIndexPath: indexPath, view: view)
     }
 }
