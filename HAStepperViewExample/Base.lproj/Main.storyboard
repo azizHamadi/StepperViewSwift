@@ -74,9 +74,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akn-JR-mng" customClass="Stepper" customModule="HAStepperView">
                                 <rect key="frame" x="0.0" y="109" width="393" height="633"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCustomStepperView" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SOT-WI-7tW">
                                 <rect key="frame" x="25" y="753" width="343" height="40"/>
