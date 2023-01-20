@@ -2,7 +2,7 @@
 //  CustomExampleViewController.swift
 //  HAStepperViewExample
 //
-//  Created by Tarek Messadi on 20/1/2023.
+//  Created by Aziz Hamadi on 20/1/2023.
 //
 
 import UIKit
@@ -17,7 +17,6 @@ class CustomExampleViewController: UIViewController {
 
     @IBOutlet var stepperView: Stepper! {
         didSet {
-            stepperView.actionIconColor = .systemBrown
             stepperView.customDataSource = self
             stepperView.customDelegate = self
         }

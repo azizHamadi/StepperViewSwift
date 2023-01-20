@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  HAStepperViewExample
 //
-//  Created by Tarek Messadi on 20/1/2023.
+//  Created by Aziz Hamadi on 20/1/2023.
 //
 
 import UIKit

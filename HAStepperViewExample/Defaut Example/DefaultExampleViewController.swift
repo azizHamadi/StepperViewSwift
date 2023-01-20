@@ -36,7 +36,6 @@ class DefaultExampleViewController: UIViewController {
 
     @IBOutlet var stepperView: Stepper! {
         didSet {
-            stepperView.actionIconColor = .darkGray
             stepperView.defaultDataSource = self
             stepperView.defaultDelegate = self
         }
