@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExampleStepperItem" customModule="HAStepperViewExample" customModuleProvider="target">
+            <connections>
+                <outlet property="titleLabel" destination="J7F-9O-Z15" id="wyw-MW-s0a"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="93"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BJ2-0c-2LP">
+                    <rect key="frame" x="0.0" y="0.0" width="364" height="93"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7F-9O-Z15">
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="22.333333333333332"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EpI-Rf-fbM">
+                            <rect key="frame" x="0.0" y="27.333333333333336" width="364" height="65.666666666666657"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hello ExampleStepperItem" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kIC-Ru-KqF">
+                                    <rect key="frame" x="10" y="10.000000000000004" width="344" height="45.666666666666671"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="kIC-Ru-KqF" secondAttribute="trailing" constant="10" id="0Mf-92-kTb"/>
+                                <constraint firstItem="kIC-Ru-KqF" firstAttribute="top" secondItem="EpI-Rf-fbM" secondAttribute="top" constant="10" id="8PE-qV-cyx"/>
+                                <constraint firstAttribute="bottom" secondItem="kIC-Ru-KqF" secondAttribute="bottom" constant="10" id="eeL-8q-hfn"/>
+                                <constraint firstItem="kIC-Ru-KqF" firstAttribute="leading" secondItem="EpI-Rf-fbM" secondAttribute="leading" constant="10" id="nM4-RA-aB7"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="BJ2-0c-2LP" secondAttribute="bottom" id="Cml-Pv-76E"/>
+                <constraint firstItem="BJ2-0c-2LP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="HpM-KO-VfL"/>
+                <constraint firstItem="BJ2-0c-2LP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UKB-YB-ybK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BJ2-0c-2LP" secondAttribute="trailing" id="vdG-8u-27x"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-43" y="-30"/>
+        </view>
+    </objects>
+</document>

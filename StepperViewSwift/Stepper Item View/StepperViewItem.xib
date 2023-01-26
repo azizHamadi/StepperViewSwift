@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StepperViewItem" customModule="StepperView" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StepperViewItem" customModule="HAStepperView" customModuleProvider="target">
             <connections>
                 <outlet property="checkMark" destination="p6a-SY-kmq" id="xbC-n0-Xkn"/>
                 <outlet property="circleStepperView" destination="Wll-Zf-nql" id="h4X-Wg-oWx"/>
@@ -60,8 +61,7 @@
                                         <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="p6a-SY-kmq">
                                             <rect key="frame" x="8.5" y="8.5" width="25" height="25"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="25" id="DgW-N5-5fO"/>
-                                                <constraint firstAttribute="height" constant="25" id="oU4-HT-ooI"/>
+                                                <constraint firstAttribute="width" secondItem="p6a-SY-kmq" secondAttribute="height" multiplier="1:1" id="vQP-8R-j8Y"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -69,6 +69,7 @@
                                     <constraints>
                                         <constraint firstItem="p6a-SY-kmq" firstAttribute="centerX" secondItem="Wll-Zf-nql" secondAttribute="centerX" id="9eB-Ke-Z80"/>
                                         <constraint firstAttribute="width" secondItem="Wll-Zf-nql" secondAttribute="height" multiplier="1:1" id="Hle-i9-6J2"/>
+                                        <constraint firstItem="p6a-SY-kmq" firstAttribute="height" secondItem="Wll-Zf-nql" secondAttribute="height" multiplier="0.595238" id="IkC-XG-iuw"/>
                                         <constraint firstAttribute="height" constant="42" id="Kzp-Jc-UnB"/>
                                         <constraint firstItem="p6a-SY-kmq" firstAttribute="centerY" secondItem="Wll-Zf-nql" secondAttribute="centerY" id="MJi-HP-N1W"/>
                                         <constraint firstItem="COz-Tz-daE" firstAttribute="centerY" secondItem="Wll-Zf-nql" secondAttribute="centerY" id="hJk-7g-wr9"/>
@@ -106,7 +107,6 @@
                                             <constraints>
                                                 <constraint firstItem="bnU-Uv-7ek" firstAttribute="leading" secondItem="Sai-pw-v6t" secondAttribute="leading" id="4dy-Fg-DYn"/>
                                                 <constraint firstAttribute="trailing" secondItem="bnU-Uv-7ek" secondAttribute="trailing" id="ZTK-P2-kjv"/>
-                                                <constraint firstItem="bnU-Uv-7ek" firstAttribute="top" secondItem="Sai-pw-v6t" secondAttribute="top" id="nXP-Yf-dtS"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bnU-Uv-7ek" secondAttribute="bottom" id="pa7-7W-UdK"/>
                                             </constraints>
                                         </view>
@@ -190,6 +190,9 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="bnU-Uv-7ek" firstAttribute="centerY" secondItem="Wll-Zf-nql" secondAttribute="centerY" id="gPB-Hl-5hq"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

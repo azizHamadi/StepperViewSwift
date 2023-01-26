@@ -1,6 +1,6 @@
 //
 //  StepperViewItem.swift
-//  StepperView
+//  StepperViewSwift
 //
 //  Created by Aziz Hamadi on 16/1/2023.
 //
@@ -43,6 +43,7 @@ class StepperViewItem: UIView {
     @IBOutlet weak var questionNumber: UILabel!
     @IBOutlet weak var checkMark: UIImageView! {
         didSet {
+            checkMark.layoutIfNeeded()
             checkMark.tintColor = .systemGray6
         }
     }
@@ -80,7 +81,8 @@ class StepperViewItem: UIView {
     @IBOutlet weak var responseTextView: UITextView!
     @IBOutlet weak var responseTableView: UITableView! {
         didSet {
-            responseTableView.register(UINib(nibName: "ResponseTableViewCell", bundle: nil), forCellReuseIdentifier: "ResponseTableViewCell")
+            responseTableView.register(UINib(nibName: "ResponseTableViewCell", bundle: Bundle(for: StepperViewItem.self)),
+                                       forCellReuseIdentifier: "ResponseTableViewCell")
             responseTableView.dataSource = self
             responseTableView.delegate = self
             responseTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
@@ -153,15 +155,15 @@ class StepperViewItem: UIView {
                            options: [],
                            animations: {
                 self.questionBody.alpha = self.isSelected ? 1 : 0
-            },completion: nil)
-            UIView.animate(withDuration: isSelected ? 1 : 0.7 ,
+            }, completion: nil)
+            UIView.animate(withDuration: isSelected ? 1 : 0.7,
                            delay: 0.0,
                            usingSpringWithDamping: 0.7,
                            initialSpringVelocity: 1,
                            options: [],
                            animations: {
                 self.questionBody.isHidden = !self.isSelected
-            },completion: nil)
+            }, completion: nil)
         }
     }
     var isFinished = false {
@@ -186,7 +188,8 @@ class StepperViewItem: UIView {
             questionTitle.alpha = isSelected ? 1 : ( isPending ? 0.3 : 0.5)
         }
     }
-    var iconCercleStepper: UIImage = UIImage(systemName: "checkmark")!.withRenderingMode(.alwaysTemplate) {
+    var iconCercleStepper: UIImage = UIImage(named: "checkmark", in: Bundle(for: StepperViewItem.self), compatibleWith: nil)!
+        .withRenderingMode(.alwaysTemplate) {
         didSet {
             checkMark.image = iconCercleStepper
             checkMark.image = checkMark.image?.withRenderingMode(.alwaysTemplate)
@@ -203,21 +206,21 @@ class StepperViewItem: UIView {
         }
     }
     var actionIconColor: UIColor = .systemBlue
-    var stepperData: StepperModel.viewModel?
+    var stepperData: StepperModel.ViewModel?
     var selectedIndex: [Int] = []
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if(keyPath == "contentSize"){
-            if let newvalue = change?[.newKey]
-            {
+
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize" {
+            if let newvalue = change?[.newKey] {
                 DispatchQueue.main.async {
-                    let newsize  = newvalue as! CGSize
-                    self.hightResponseTableView.constant = newsize.height
+                    if let newsize  = newvalue as? CGSize {
+                        self.hightResponseTableView.constant = newsize.height
+                    }
                 }
             }
         }
     }
-    func createStepper(stepperData: StepperModel.viewModel? = nil, index: Int, isSelected: Bool, stepperBody: UIView? = nil, title: String? = nil) {
+    func createStepper(stepperData: StepperModel.ViewModel? = nil, index: Int, isSelected: Bool, stepperBody: UIView? = nil, title: String? = nil) {
         questionNumber.text = index.description
         questionTitle.alpha = isSelected ? 1 : ( isPending ? 0.3 : 0.5)
         linearStepperView.alpha = isPending ? 0.5 : 1
@@ -238,7 +241,7 @@ class StepperViewItem: UIView {
             createDefaultStepper(stepperData: stepperData)
         }
     }
-    func createDefaultStepper(stepperData: StepperModel.viewModel) {
+    func createDefaultStepper(stepperData: StepperModel.ViewModel) {
         responseTFView.isHidden = true
         responseTVView.isHidden = true
         responseTableView.isHidden = true
@@ -250,19 +253,20 @@ class StepperViewItem: UIView {
         responseTitleLabel.text = stepperData.resourceConfig?.responseTitle
         responseTitleLabel.isHidden = stepperData.resourceConfig?.responseTitle?.isEmpty ?? true
         switch stepperData.type {
-            case .text:
-                responseTFView.isHidden = false
-                responseTF.placeholder = stepperData.resourceConfig?.responsePlaceholder
-            case .textarea:
-                responseTVView.isHidden = false
-                if let placeholder = stepperData.resourceConfig?.responsePlaceholder {
-                    addPlaceholder(placeholder: placeholder)
-                }
-            default:
-                responseTableView.isHidden = false
-                responseTableView.dragInteractionEnabled = stepperData.type == .ranking
-                responseTableView.allowsSelection = stepperData.type != .ranking
+        case .text:
+            responseTFView.isHidden = false
+            responseTF.placeholder = stepperData.resourceConfig?.responsePlaceholder
+        case .textarea:
+            responseTVView.isHidden = false
+            if let placeholder = stepperData.resourceConfig?.responsePlaceholder {
+                addPlaceholder(placeholder: placeholder)
+            }
+        default:
+            responseTableView.isHidden = false
+            responseTableView.dragInteractionEnabled = stepperData.type == .ranking
+            responseTableView.allowsSelection = stepperData.type != .ranking
         }
+        
     }
     private func addPlaceholder(placeholder: String) {
         let placeholderLabel = UILabel()
@@ -280,10 +284,10 @@ class StepperViewItem: UIView {
         self.isPending = isPending
         self.isFinished = isFinished
     }
-    func stepperResultData() -> StepperModel.requestModel {
-        let responseList = stepperData?.type == .ranking ? stepperData?.responseList : stepperData?.responseList?.filter{ $0.checked ?? false }
+    func stepperResultData() -> StepperModel.RequestModel {
+        let responseList = stepperData?.type == .ranking ? stepperData?.responseList : stepperData?.responseList?.filter {$0.checked ?? false}
         let responseText = stepperData?.type == .text ? responseTF.text : responseTextView.text
-        return StepperModel.requestModel(type: stepperData?.type, responseText: responseText, responseList: responseList)
+        return StepperModel.RequestModel(type: stepperData?.type, responseText: responseText, responseList: responseList)
     }
     func customViewFromStepper() -> UIView? {
         return questionBody.arrangedSubviews.first
@@ -294,7 +298,9 @@ extension StepperViewItem: UITableViewDataSource, UITableViewDelegate, UITableVi
         return stepperData?.responseList?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResponseTableViewCell", for: indexPath) as! ResponseTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ResponseTableViewCell", for: indexPath) as? ResponseTableViewCell else {
+            return UITableViewCell()
+        }
         cell.createResponse(responseItem: stepperData?.responseList?[indexPath.item], steppertype: stepperData?.type, actionIconColor: actionIconColor)
         cell.selectionStyle = .none
         return cell
@@ -305,13 +311,13 @@ extension StepperViewItem: UITableViewDataSource, UITableViewDelegate, UITableVi
             if !selectedIndex.isEmpty && stepperData?.type == .radiobox && indexPath.item != selectedIndex.first ?? 0 {
                 let checked = !(stepperData?.responseList?[selectedIndex.first ?? 0].checked ?? false)
                 stepperData?.responseList?[selectedIndex.first ?? 0].checked = checked
-                let cell = tableView.cellForRow(at: IndexPath(row: selectedIndex.first ?? 0, section: 0)) as! ResponseTableViewCell
-                cell.toggleItemAction()
+                let cell = tableView.cellForRow(at: IndexPath(row: selectedIndex.first ?? 0, section: 0)) as? ResponseTableViewCell
+                cell?.toggleItemAction()
                 selectedIndex.removeAll()
             }
             if stepperData?.type == .checkbox
                 && selectedIndex.count == stepperData?.maxChecked ?? (stepperData?.responseList?.count ?? 0)
-                && selectedIndex.filter({ $0 == indexPath.item }).count == 0 {
+                && selectedIndex.filter({$0 == indexPath.item}).isEmpty {
                 isEnabled = false
             }
             if isEnabled {
@@ -320,8 +326,8 @@ extension StepperViewItem: UITableViewDataSource, UITableViewDelegate, UITableVi
                 } else {
                     selectedIndex.append(indexPath.item)
                 }
-                let cell = tableView.cellForRow(at: indexPath) as! ResponseTableViewCell
-                cell.toggleItemAction()
+                let cell = tableView.cellForRow(at: indexPath) as? ResponseTableViewCell
+                cell?.toggleItemAction()
                 let checked = !(stepperData?.responseList?[indexPath.item].checked ?? false)
                 stepperData?.responseList?[indexPath.item].checked = checked
             }

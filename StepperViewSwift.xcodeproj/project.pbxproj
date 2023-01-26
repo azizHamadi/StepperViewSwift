@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6698EE6929820F9600CA8F90 /* DefaultExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC5A08297AE17700A09970 /* DefaultExampleViewController.swift */; };
+		6698EE6A29820F9600CA8F90 /* ExampleStepperItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC5A1E297AF7E800A09970 /* ExampleStepperItem.swift */; };
+		6698EE6B29820F9600CA8F90 /* CustomExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC5A18297AF6BC00A09970 /* CustomExampleViewController.swift */; };
+		6698EE6C29820F9600CA8F90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC5A04297AE17700A09970 /* AppDelegate.swift */; };
+		6698EE6D29820F9600CA8F90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC5A06297AE17700A09970 /* SceneDelegate.swift */; };
+		6698EE6E29820F9600CA8F90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC5A23297AFAC000A09970 /* ViewController.swift */; };
+		66CC5A0C297AE17700A09970 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CC5A0A297AE17700A09970 /* Main.storyboard */; };
+		66CC5A0E297AE17900A09970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CC5A0D297AE17900A09970 /* Assets.xcassets */; };
+		66CC5A11297AE17900A09970 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CC5A0F297AE17900A09970 /* LaunchScreen.storyboard */; };
+		66CC5A22297AF8CA00A09970 /* ExampleStepperItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66CC5A1D297AF7E800A09970 /* ExampleStepperItem.xib */; };
 		66F6D6752975FE12005DFD5D /* StepperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F6D6742975FE12005DFD5D /* StepperModel.swift */; };
 		66F8B5322976054E005AA243 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8B5312976054E005AA243 /* UIImageView.swift */; };
 		66F8B54829760711005AA243 /* StepperViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8B54329760711005AA243 /* StepperViewItem.swift */; };
@@ -17,8 +27,30 @@
 		66F8B55429760C33005AA243 /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8B55229760C33005AA243 /* Stepper.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6698EE6F29820FAB00CA8F90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66953BB12975B9870000539F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66953BB92975B9870000539F;
+			remoteInfo = StepperViewSwift;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		66953BBA2975B9870000539F /* StepperView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StepperView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66953BBA2975B9870000539F /* StepperViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StepperViewSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66CC5A02297AE17700A09970 /* StepperViewSwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepperViewSwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66CC5A04297AE17700A09970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		66CC5A06297AE17700A09970 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		66CC5A08297AE17700A09970 /* DefaultExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExampleViewController.swift; sourceTree = "<group>"; };
+		66CC5A0B297AE17700A09970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		66CC5A0D297AE17900A09970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66CC5A10297AE17900A09970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		66CC5A12297AE17900A09970 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66CC5A18297AF6BC00A09970 /* CustomExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExampleViewController.swift; sourceTree = "<group>"; };
+		66CC5A1D297AF7E800A09970 /* ExampleStepperItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExampleStepperItem.xib; sourceTree = "<group>"; };
+		66CC5A1E297AF7E800A09970 /* ExampleStepperItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleStepperItem.swift; sourceTree = "<group>"; };
+		66CC5A23297AFAC000A09970 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		66F6D6742975FE12005DFD5D /* StepperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperModel.swift; sourceTree = "<group>"; };
 		66F8B5312976054E005AA243 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		66F8B54329760711005AA243 /* StepperViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperViewItem.swift; sourceTree = "<group>"; };
@@ -37,13 +69,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		66CC59FF297AE17700A09970 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		66953BB02975B9870000539F = {
 			isa = PBXGroup;
 			children = (
-				66953BBC2975B9870000539F /* StepperView */,
+				66953BBC2975B9870000539F /* StepperViewSwift */,
+				66CC5A03297AE17700A09970 /* StepperViewSwiftExample */,
 				66953BBB2975B9870000539F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,12 +91,13 @@
 		66953BBB2975B9870000539F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				66953BBA2975B9870000539F /* StepperView.framework */,
+				66953BBA2975B9870000539F /* StepperViewSwift.framework */,
+				66CC5A02297AE17700A09970 /* StepperViewSwiftExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		66953BBC2975B9870000539F /* StepperView */ = {
+		66953BBC2975B9870000539F /* StepperViewSwift */ = {
 			isa = PBXGroup;
 			children = (
 				66F8B54229760711005AA243 /* Stepper Item View */,
@@ -65,7 +106,49 @@
 				66F8B55229760C33005AA243 /* Stepper.swift */,
 				66F8B55029760A55005AA243 /* Assets.xcassets */,
 			);
-			path = StepperView;
+			path = StepperViewSwift;
+			sourceTree = "<group>";
+		};
+		66CC5A03297AE17700A09970 /* StepperViewSwiftExample */ = {
+			isa = PBXGroup;
+			children = (
+				66CC5A1B297AF78C00A09970 /* Defaut Example */,
+				66CC5A1A297AF77100A09970 /* Custom Example */,
+				66CC5A04297AE17700A09970 /* AppDelegate.swift */,
+				66CC5A06297AE17700A09970 /* SceneDelegate.swift */,
+				66CC5A23297AFAC000A09970 /* ViewController.swift */,
+				66CC5A0A297AE17700A09970 /* Main.storyboard */,
+				66CC5A0D297AE17900A09970 /* Assets.xcassets */,
+				66CC5A0F297AE17900A09970 /* LaunchScreen.storyboard */,
+				66CC5A12297AE17900A09970 /* Info.plist */,
+			);
+			path = StepperViewSwiftExample;
+			sourceTree = "<group>";
+		};
+		66CC5A1A297AF77100A09970 /* Custom Example */ = {
+			isa = PBXGroup;
+			children = (
+				66CC5A1C297AF7A000A09970 /* Custom View */,
+				66CC5A18297AF6BC00A09970 /* CustomExampleViewController.swift */,
+			);
+			path = "Custom Example";
+			sourceTree = "<group>";
+		};
+		66CC5A1B297AF78C00A09970 /* Defaut Example */ = {
+			isa = PBXGroup;
+			children = (
+				66CC5A08297AE17700A09970 /* DefaultExampleViewController.swift */,
+			);
+			path = "Defaut Example";
+			sourceTree = "<group>";
+		};
+		66CC5A1C297AF7A000A09970 /* Custom View */ = {
+			isa = PBXGroup;
+			children = (
+				66CC5A1E297AF7E800A09970 /* ExampleStepperItem.swift */,
+				66CC5A1D297AF7E800A09970 /* ExampleStepperItem.xib */,
+			);
+			path = "Custom View";
 			sourceTree = "<group>";
 		};
 		66F6D6732975FDF3005DFD5D /* Model */ = {
@@ -116,9 +199,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		66953BB92975B9870000539F /* StepperView */ = {
+		66953BB92975B9870000539F /* StepperViewSwift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66953BC32975B9870000539F /* Build configuration list for PBXNativeTarget "StepperView" */;
+			buildConfigurationList = 66953BC32975B9870000539F /* Build configuration list for PBXNativeTarget "StepperViewSwift" */;
 			buildPhases = (
 				66953BB52975B9870000539F /* Headers */,
 				66953BB62975B9870000539F /* Sources */,
@@ -129,10 +212,28 @@
 			);
 			dependencies = (
 			);
-			name = StepperView;
+			name = StepperViewSwift;
 			productName = StepperView;
-			productReference = 66953BBA2975B9870000539F /* StepperView.framework */;
+			productReference = 66953BBA2975B9870000539F /* StepperViewSwift.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		66CC5A01297AE17700A09970 /* StepperViewSwiftExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66CC5A15297AE17900A09970 /* Build configuration list for PBXNativeTarget "StepperViewSwiftExample" */;
+			buildPhases = (
+				66CC59FE297AE17700A09970 /* Sources */,
+				66CC59FF297AE17700A09970 /* Frameworks */,
+				66CC5A00297AE17700A09970 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6698EE7029820FAB00CA8F90 /* PBXTargetDependency */,
+			);
+			name = StepperViewSwiftExample;
+			productName = HAStepperViewExample;
+			productReference = 66CC5A02297AE17700A09970 /* StepperViewSwiftExample.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -141,14 +242,18 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					66953BB92975B9870000539F = {
 						CreatedOnToolsVersion = 14.1;
 					};
+					66CC5A01297AE17700A09970 = {
+						CreatedOnToolsVersion = 14.1;
+					};
 				};
 			};
-			buildConfigurationList = 66953BB42975B9870000539F /* Build configuration list for PBXProject "StepperView" */;
+			buildConfigurationList = 66953BB42975B9870000539F /* Build configuration list for PBXProject "StepperViewSwift" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -161,7 +266,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				66953BB92975B9870000539F /* StepperView */,
+				66953BB92975B9870000539F /* StepperViewSwift */,
+				66CC5A01297AE17700A09970 /* StepperViewSwiftExample */,
 			);
 		};
 /* End PBXProject section */
@@ -174,6 +280,17 @@
 				66F8B54A29760711005AA243 /* ResponseTableViewCell.xib in Resources */,
 				66F8B55129760A55005AA243 /* Assets.xcassets in Resources */,
 				66F8B54929760711005AA243 /* StepperViewItem.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66CC5A00297AE17700A09970 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66CC5A11297AE17900A09970 /* LaunchScreen.storyboard in Resources */,
+				66CC5A22297AF8CA00A09970 /* ExampleStepperItem.xib in Resources */,
+				66CC5A0E297AE17900A09970 /* Assets.xcassets in Resources */,
+				66CC5A0C297AE17700A09970 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +309,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		66CC59FE297AE17700A09970 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6698EE6929820F9600CA8F90 /* DefaultExampleViewController.swift in Sources */,
+				6698EE6A29820F9600CA8F90 /* ExampleStepperItem.swift in Sources */,
+				6698EE6B29820F9600CA8F90 /* CustomExampleViewController.swift in Sources */,
+				6698EE6C29820F9600CA8F90 /* AppDelegate.swift in Sources */,
+				6698EE6D29820F9600CA8F90 /* SceneDelegate.swift in Sources */,
+				6698EE6E29820F9600CA8F90 /* ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6698EE7029820FAB00CA8F90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66953BB92975B9870000539F /* StepperViewSwift */;
+			targetProxy = 6698EE6F29820FAB00CA8F90 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		66CC5A0A297AE17700A09970 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66CC5A0B297AE17700A09970 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		66CC5A0F297AE17900A09970 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66CC5A10297AE17900A09970 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		66953BC12975B9870000539F /* Debug */ = {
@@ -377,10 +534,68 @@
 			};
 			name = Release;
 		};
+		66CC5A13297AE17900A09970 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 426VMKN576;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StepperViewSwiftExample/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.mimarketing.io.HAStepperViewExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		66CC5A14297AE17900A09970 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 426VMKN576;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StepperViewSwiftExample/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.mimarketing.io.HAStepperViewExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		66953BB42975B9870000539F /* Build configuration list for PBXProject "StepperView" */ = {
+		66953BB42975B9870000539F /* Build configuration list for PBXProject "StepperViewSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66953BC12975B9870000539F /* Debug */,
@@ -389,11 +604,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66953BC32975B9870000539F /* Build configuration list for PBXNativeTarget "StepperView" */ = {
+		66953BC32975B9870000539F /* Build configuration list for PBXNativeTarget "StepperViewSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66953BC42975B9870000539F /* Debug */,
 				66953BC52975B9870000539F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66CC5A15297AE17900A09970 /* Build configuration list for PBXNativeTarget "StepperViewSwiftExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66CC5A13297AE17900A09970 /* Debug */,
+				66CC5A14297AE17900A09970 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

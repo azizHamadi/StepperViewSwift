@@ -1,6 +1,6 @@
 //
 //  ResponseTableViewCell.swift
-//  StepperView
+//  StepperViewSwift
 //
 //  Created by Aziz Hamadi on 16/1/2023.
 //
@@ -44,8 +44,8 @@ class ResponseTableViewCell: UITableViewCell {
             separatorView.backgroundColor = actionIconColor
         }
     }
-    var checkedIcon = UIImage(named: "radiobox_checked")?.withRenderingMode(.alwaysTemplate)
-    var uncheckedIcon = UIImage(named: "radiobox")?.withRenderingMode(.alwaysTemplate)
+    var checkedIcon = UIImage(named: "radiobox_checked", in: Bundle(for: ResponseTableViewCell.self), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+    var uncheckedIcon = UIImage(named: "radiobox", in: Bundle(for: ResponseTableViewCell.self), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
     var responseItem: ResponseItem?
     var steppertype: Steppertype?
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -58,26 +58,31 @@ class ResponseTableViewCell: UITableViewCell {
         if let image = responseItem?.image {
             imageResponseView.isHidden = false
             switch responseItem?.imageType {
-                case .assets:
-                    imageResponse.image = UIImage(named: image)
-                case .presignedUrl:
-                    imageResponse.load(from: image)
-                default:
-                    imageResponse.image = UIImage(systemName: image)
+            case .assets:
+                imageResponse.image = UIImage(named: image)
+            case .presignedUrl:
+                imageResponse.load(from: image)
+            default:
+                imageResponse.image = UIImage(systemName: image)
             }
         }
         textResponse.text = responseItem?.responseText
         separatorView.isHidden = true
         switch steppertype {
-            case .ranking:
-                uncheckedIcon = UIImage(named: "arrow.up.and.down.and.arrow.left.and.right")?.withRenderingMode(.alwaysTemplate)
-                separatorView.isHidden = false
-            case .checkbox:
-                checkedIcon = UIImage(named: "checkbox_checked")?.withRenderingMode(.alwaysTemplate)
-                uncheckedIcon = UIImage(named: "checkbox")?.withRenderingMode(.alwaysTemplate)
-            default:
-                checkedIcon = UIImage(named: "radiobox_checked")?.withRenderingMode(.alwaysTemplate)
-                uncheckedIcon = UIImage(named: "radiobox")?.withRenderingMode(.alwaysTemplate)
+        case .ranking:
+            uncheckedIcon = UIImage(named: "arrow.up.and.down.and.arrow.left.and.right", in: Bundle(for: ResponseTableViewCell.self), compatibleWith: nil)?
+                    .withRenderingMode(.alwaysTemplate)
+            separatorView.isHidden = false
+        case .checkbox:
+            checkedIcon = UIImage(named: "checkbox_checked", in: Bundle(for: ResponseTableViewCell.self), compatibleWith: nil)?
+                    .withRenderingMode(.alwaysTemplate)
+            uncheckedIcon = UIImage(named: "checkbox", in: Bundle(for: ResponseTableViewCell.self), compatibleWith: nil)?
+                    .withRenderingMode(.alwaysTemplate)
+        default:
+            checkedIcon = UIImage(named: "radiobox_checked", in: Bundle(for: ResponseTableViewCell.self), compatibleWith: nil)?
+                    .withRenderingMode(.alwaysTemplate)
+            uncheckedIcon = UIImage(named: "radiobox", in: Bundle(for: ResponseTableViewCell.self), compatibleWith: nil)?
+                    .withRenderingMode(.alwaysTemplate)
         }
         actionIcon.image = uncheckedIcon
     }
