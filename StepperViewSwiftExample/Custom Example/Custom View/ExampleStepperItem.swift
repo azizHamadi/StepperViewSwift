@@ -1,6 +1,6 @@
 //
 //  ExampleStepperItem.swift
-//  StepperView
+//  StepperViewSwiftExample
 //
 //  Created by Aziz Hamadi on 9/1/2023.
 //

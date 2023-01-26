@@ -1,12 +1,12 @@
 //
 //  CustomExampleViewController.swift
-//  HAStepperViewExample
+//  StepperViewSwiftExample
 //
-//  Created by Tarek Messadi on 20/1/2023.
+//  Created by Aziz Hamadi on 20/1/2023.
 //
 
 import UIKit
-import HAStepperView
+import StepperViewSwift
 
 class CustomExampleViewController: UIViewController {
     override func viewDidLoad() {
@@ -17,8 +17,8 @@ class CustomExampleViewController: UIViewController {
 
     @IBOutlet var stepperView: Stepper! {
         didSet {
-            stepperView.dataSource = self
-            stepperView.delegate = self
+            stepperView.customDataSource = self
+            stepperView.customDelegate = self
         }
     }
     
@@ -37,13 +37,9 @@ class CustomExampleViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
-extension CustomExampleViewController: StepperDataSource {
+extension CustomExampleViewController: CustomStepperDataSource {
     func numberOfRowsInStepper() -> Int {
         return titles.count
-    }
-    
-    func stepper(dataForRowAtIndexPath indexPath: NSIndexPath) -> StepperModel.viewModel? {
-        return nil
     }
     
     func stepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> UIView? {
@@ -56,10 +52,8 @@ extension CustomExampleViewController: StepperDataSource {
         return titles[indexPath.row]
     }
 }
-extension CustomExampleViewController: StepperDelegate {
-    func resultStepper(dataAtIndexPath indexPath: NSIndexPath, data: StepperModel.requestModel?) {}
-    
-    func stepperCustomView(viewAtIndexPath indexPath: NSIndexPath, view: UIView?) {
+extension CustomExampleViewController: CustomStepperDelegate {
+    func resultStepper(viewAtIndexPath indexPath: NSIndexPath, view: UIView?) {
         if let customStepperView = view as? ExampleStepperItem {
             print("Index of custom stepper view : \(indexPath.row) and titleLabel : \(customStepperView.titleLabel.text ?? "")")
         }

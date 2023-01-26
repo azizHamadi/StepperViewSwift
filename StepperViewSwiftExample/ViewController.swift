@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  HAStepperViewExample
+//  StepperViewSwiftExample
 //
-//  Created by Tarek Messadi on 20/1/2023.
+//  Created by Aziz Hamadi on 20/1/2023.
 //
 
 import UIKit
@@ -15,13 +15,15 @@ class ViewController: UIViewController {
     
     @IBAction func toDefaultStepperAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let defaultStepperViewController = storyboard.instantiateViewController(withIdentifier: "DefaultExampleViewController") as? DefaultExampleViewController else { return }
+        guard let defaultStepperViewController = storyboard.instantiateViewController(withIdentifier: "DefaultExampleViewController")
+                as? DefaultExampleViewController else { return }
         navigationController?.pushViewController(defaultStepperViewController, animated: true)
     }
     
     @IBAction func toCustomStepperAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let customStepperViewController = storyboard.instantiateViewController(withIdentifier: "CustomExampleViewController") as? CustomExampleViewController else { return }
+        guard let customStepperViewController = storyboard.instantiateViewController(withIdentifier: "CustomExampleViewController")
+                as? CustomExampleViewController else { return }
         navigationController?.pushViewController(customStepperViewController, animated: true)
     }
 }

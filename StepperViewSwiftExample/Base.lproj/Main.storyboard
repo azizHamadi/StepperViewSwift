@@ -26,7 +26,7 @@
         <!--View Controller-->
         <scene sceneID="YjW-1P-FW4">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="e42-5b-bhl" customClass="ViewController" customModule="HAStepperViewExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="e42-5b-bhl" customClass="ViewController" customModule="StepperViewSwiftExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DUb-tN-kSf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,17 +66,14 @@
         <!--Custom Example View Controller-->
         <scene sceneID="f5S-Be-56e">
             <objects>
-                <viewController storyboardIdentifier="CustomExampleViewController" id="dTA-HX-SCl" customClass="CustomExampleViewController" customModule="HAStepperViewExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomExampleViewController" id="dTA-HX-SCl" customClass="CustomExampleViewController" customModule="StepperViewSwiftExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="szr-hz-0mO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akn-JR-mng" customClass="Stepper" customModule="HAStepperView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akn-JR-mng" customClass="Stepper" customModule="StepperViewSwift">
                                 <rect key="frame" x="0.0" y="109" width="393" height="633"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCustomStepperView" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SOT-WI-7tW">
                                 <rect key="frame" x="25" y="753" width="343" height="40"/>
@@ -137,12 +134,12 @@
         <!--Default Example View Controller-->
         <scene sceneID="eek-ll-1e2">
             <objects>
-                <viewController storyboardIdentifier="DefaultExampleViewController" id="UwO-72-GKf" customClass="DefaultExampleViewController" customModule="HAStepperViewExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DefaultExampleViewController" id="UwO-72-GKf" customClass="DefaultExampleViewController" customModule="StepperViewSwiftExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XP4-3R-h8n">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGw-n6-SbG" customClass="Stepper" customModule="HAStepperView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGw-n6-SbG" customClass="Stepper" customModule="StepperViewSwift">
                                 <rect key="frame" x="0.0" y="109" width="393" height="633"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
