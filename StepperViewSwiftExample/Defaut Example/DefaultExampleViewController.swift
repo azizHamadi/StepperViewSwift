@@ -72,8 +72,9 @@ A short 3-5 sentence paragraph that summarizes your career. It covers your main 
     
     @IBAction func nextAction(_ sender: Any) {
         if stepperView.isLastStepper() {
-            stepperView.reloadData()
-            print("last stepper item")
+            let alert = UIAlertController(title: "Congratulations", message: "You have completed the stepper", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
         } else {
             stepperView.nextStepper()
         }

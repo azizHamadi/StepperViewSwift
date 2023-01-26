@@ -27,9 +27,12 @@ class CustomExampleViewController: UIViewController {
     }
     
     @IBAction func nextAction(_ sender: Any) {
-        stepperView.nextStepper()
         if stepperView.isLastStepper() {
-            print("last stepper item")
+            let alert = UIAlertController(title: "Congratulations", message: "You have completed the stepper", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+        } else {
+            stepperView.nextStepper()
         }
     }
     
