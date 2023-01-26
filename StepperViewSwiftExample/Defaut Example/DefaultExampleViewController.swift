@@ -1,6 +1,6 @@
 //
 //  DefaultExampleViewController.swift
-//  StepperView
+//  StepperViewSwiftExample
 //
 //  Created by Aziz Hamadi on 5/1/2023.
 //

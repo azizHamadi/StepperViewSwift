@@ -1,6 +1,6 @@
 //
 //  StepperScrollView.swift
-//  StepperView
+//  StepperViewSwift
 //
 //  Created by Aziz Hamadi on 4/1/2023.
 //

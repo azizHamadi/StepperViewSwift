@@ -1,6 +1,6 @@
 //
 //  StepperViewItem.swift
-//  StepperView
+//  StepperViewSwift
 //
 //  Created by Aziz Hamadi on 16/1/2023.
 //
