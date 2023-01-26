@@ -81,7 +81,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEJ-e6-Je2">
                                         <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="40"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Précédent" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Previous" cornerStyle="capsule"/>
                                         <connections>
                                             <action selector="previousAction:" destination="dTA-HX-SCl" eventType="touchUpInside" id="RdE-lQ-1Ql"/>
                                         </connections>
@@ -89,7 +89,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bro-FY-7if">
                                         <rect key="frame" x="181.66666666666663" y="0.0" width="161.33333333333337" height="40"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Suivant" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Next" cornerStyle="capsule"/>
                                         <connections>
                                             <action selector="nextAction:" destination="dTA-HX-SCl" eventType="touchUpInside" id="H93-cP-dwa"/>
                                         </connections>
@@ -121,6 +121,7 @@
                             <constraint firstItem="oNT-hS-85v" firstAttribute="bottom" secondItem="akn-JR-mng" secondAttribute="bottom" constant="76" id="lWr-Dt-6fz"/>
                             <constraint firstItem="oNT-hS-85v" firstAttribute="trailing" secondItem="SOT-WI-7tW" secondAttribute="trailing" constant="25" id="s2T-tX-PiQ"/>
                             <constraint firstItem="akn-JR-mng" firstAttribute="leading" secondItem="oNT-hS-85v" secondAttribute="leading" id="swy-lj-Biu"/>
+                            <constraint firstItem="oNT-hS-85v" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bjV-z2-6JQ" secondAttribute="trailing" symbolic="YES" id="wFn-L2-PU7"/>
                         </constraints>
                     </view>
                     <connections>
@@ -149,7 +150,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScV-6p-Nck">
                                         <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="40"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Précédent" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Previous" cornerStyle="capsule"/>
                                         <connections>
                                             <action selector="previousAction:" destination="UwO-72-GKf" eventType="touchUpInside" id="lWn-Rz-yM6"/>
                                         </connections>
@@ -157,7 +158,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8R-tm-AFa">
                                         <rect key="frame" x="181.66666666666663" y="0.0" width="161.33333333333337" height="40"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Suivant" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Next" cornerStyle="capsule"/>
                                         <connections>
                                             <action selector="nextAction:" destination="UwO-72-GKf" eventType="touchUpInside" id="Tow-Xn-75l"/>
                                         </connections>
@@ -181,6 +182,7 @@
                         <constraints>
                             <constraint firstItem="cGw-n6-SbG" firstAttribute="trailing" secondItem="N30-eX-jjo" secondAttribute="trailing" id="1M5-GB-07y"/>
                             <constraint firstItem="N30-eX-jjo" firstAttribute="trailing" secondItem="Lex-oK-Mft" secondAttribute="trailing" constant="25" id="90H-00-KfZ"/>
+                            <constraint firstItem="N30-eX-jjo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Cg-SE-irp" secondAttribute="trailing" symbolic="YES" id="LKg-Gl-lbE"/>
                             <constraint firstItem="cGw-n6-SbG" firstAttribute="top" secondItem="6Cg-SE-irp" secondAttribute="bottom" constant="15" id="TfI-8e-xEw"/>
                             <constraint firstItem="N30-eX-jjo" firstAttribute="bottom" secondItem="cGw-n6-SbG" secondAttribute="bottom" constant="76" id="WOo-AY-1e8"/>
                             <constraint firstItem="6Cg-SE-irp" firstAttribute="top" secondItem="N30-eX-jjo" secondAttribute="top" id="dEN-qz-Q8N"/>
