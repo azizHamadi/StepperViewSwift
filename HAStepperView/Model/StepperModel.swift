@@ -13,14 +13,15 @@ public enum Steppertype {
     case ranking
 }
 public struct StepperModel {
-    public struct viewModel {
+    public struct ViewModel {
         public var title: String
         public var description: String?
         public var type: Steppertype
         public var resourceConfig: ResourceConfig?
         public var maxChecked: Int?
         public var responseList: [ResponseItem]?
-        public init(title: String, description: String? = nil, type: Steppertype, resourceConfig: ResourceConfig? = nil, maxChecked: Int? = nil, responseList: [ResponseItem]? = nil) {
+        public init(title: String, description: String? = nil, type: Steppertype,
+                    resourceConfig: ResourceConfig? = nil, maxChecked: Int? = nil, responseList: [ResponseItem]? = nil) {
             self.title = title
             self.description = description
             self.type = type
@@ -29,7 +30,7 @@ public struct StepperModel {
             self.responseList = responseList
         }
     }
-    public struct requestModel {
+    public struct RequestModel {
         public var type: Steppertype?
         public var responseText: String?
         public var responseList: [ResponseItem]?
