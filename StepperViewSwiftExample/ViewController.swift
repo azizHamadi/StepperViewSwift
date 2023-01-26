@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  HAStepperViewExample
+//  tepperViewSwiftExample
 //
 //  Created by Aziz Hamadi on 20/1/2023.
 //

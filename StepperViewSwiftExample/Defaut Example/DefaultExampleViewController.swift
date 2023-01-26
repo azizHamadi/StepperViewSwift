@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import HAStepperView
+import StepperViewSwift
 
 class DefaultExampleViewController: UIViewController {
     override func viewDidLoad() {

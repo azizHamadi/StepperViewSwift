@@ -1,12 +1,12 @@
 //
 //  CustomExampleViewController.swift
-//  HAStepperViewExample
+//  tepperViewSwiftExample
 //
 //  Created by Aziz Hamadi on 20/1/2023.
 //
 
 import UIKit
-import HAStepperView
+import StepperViewSwift
 
 class CustomExampleViewController: UIViewController {
     override func viewDidLoad() {
