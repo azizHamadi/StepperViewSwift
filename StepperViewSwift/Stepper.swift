@@ -23,7 +23,7 @@ public protocol DefaultStepperDelegate: AnyObject {
     func resultStepper(dataAtIndexPath indexPath: NSIndexPath, data: StepperModel.RequestModel?)
 }
 @IBDesignable public class Stepper: UIView {
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
     }
