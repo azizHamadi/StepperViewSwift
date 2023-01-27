@@ -39,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		66953BBA2975B9870000539F /* StepperViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StepperViewSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B256EC298345FE00645C2B /* defaultStepperView.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = defaultStepperView.gif; sourceTree = "<group>"; };
+		66B256ED29834BDA00645C2B /* stepperViewConfig.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = stepperViewConfig.gif; sourceTree = "<group>"; };
 		66CC5A02297AE17700A09970 /* StepperViewSwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepperViewSwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CC5A04297AE17700A09970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66CC5A06297AE17700A09970 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		66953BB02975B9870000539F = {
 			isa = PBXGroup;
 			children = (
+				66B256E22983358400645C2B /* Images */,
 				66953BBC2975B9870000539F /* StepperViewSwift */,
 				66CC5A03297AE17700A09970 /* StepperViewSwiftExample */,
 				66953BBB2975B9870000539F /* Products */,
@@ -107,6 +110,15 @@
 				66F8B55029760A55005AA243 /* Assets.xcassets */,
 			);
 			path = StepperViewSwift;
+			sourceTree = "<group>";
+		};
+		66B256E22983358400645C2B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				66B256ED29834BDA00645C2B /* stepperViewConfig.gif */,
+				66B256EC298345FE00645C2B /* defaultStepperView.gif */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		66CC5A03297AE17700A09970 /* StepperViewSwiftExample */ = {
