@@ -53,6 +53,8 @@
 		66CC5A1D297AF7E800A09970 /* ExampleStepperItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExampleStepperItem.xib; sourceTree = "<group>"; };
 		66CC5A1E297AF7E800A09970 /* ExampleStepperItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleStepperItem.swift; sourceTree = "<group>"; };
 		66CC5A23297AFAC000A09970 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		66EA91FF2983F8D300D715FE /* stepperParam.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stepperParam.jpg; sourceTree = "<group>"; };
+		66EA92002983F90700D715FE /* Custom class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Custom class.png"; sourceTree = "<group>"; };
 		66F6D6742975FE12005DFD5D /* StepperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperModel.swift; sourceTree = "<group>"; };
 		66F8B5312976054E005AA243 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		66F8B54329760711005AA243 /* StepperViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperViewItem.swift; sourceTree = "<group>"; };
@@ -115,8 +117,10 @@
 		66B256E22983358400645C2B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				66B256ED29834BDA00645C2B /* stepperViewConfig.gif */,
+				66EA92002983F90700D715FE /* Custom class.png */,
 				66B256EC298345FE00645C2B /* defaultStepperView.gif */,
+				66B256ED29834BDA00645C2B /* stepperViewConfig.gif */,
+				66EA91FF2983F8D300D715FE /* stepperParam.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";

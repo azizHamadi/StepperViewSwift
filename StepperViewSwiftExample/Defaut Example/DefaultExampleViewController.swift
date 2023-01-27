@@ -14,6 +14,7 @@ class DefaultExampleViewController: UIViewController {
     }
     
     let data: [StepperModel.ViewModel] = [ StepperModel.ViewModel(title: "Which of the following is NOT a primary color of light?",
+                                                                  description: "The colours which cannot be obtained by mixing of two or more colours are called primary colours",
                                                                   type: .radiobox,
                                                                   responseList: [ ResponseItem(responseText: "Red"),
                                                                                   ResponseItem(responseText: "Green"),
