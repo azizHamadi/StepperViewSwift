@@ -28,6 +28,8 @@
 
 ## Usage
 
+You can implement the stepper using the storyboard or with code
+
 ### Storyboard
 - Go to **.storyboard** and add a **blank UIView**
 - Open the **Identity Inspector** and type '**Stepper**' in the '**class**' field
