@@ -28,7 +28,7 @@
 
 ## Usage
 
-You can implement the stepper using the storyboard or with code
+You can implement the stepper using the **storyboard** or with **code**
 
 ### Storyboard
 - Go to **.storyboard** and add a **blank UIView**
