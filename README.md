@@ -97,6 +97,15 @@ $ open MyProject.xcworkspace
 
 You can now `import StepperViewSwift` framework into your files.
 
+## Contribution
+
+Contributions are welcomed and encouraged *♡*.
+
+## Contact
+
+Aziz Hamadi
+ - [LinkedIn](https://tn.linkedin.com/in/aziz-hamadi)
+
 ## License (MIT)
 
 StepperViewSwift is available under the MIT license. See the [LICENSE](https://github.com/azizHamadi/StepperViewSwift/blob/readme-version-1/LICENSE) file for more info.
