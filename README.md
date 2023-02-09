@@ -105,11 +105,11 @@ stepperView.actionIconColor = .red
 **StepperViewSwift** offers you 2 types of stepper: 
 
 - Default stepper
-- Customized
+- Custom stepper
 
 ### Default stepper
 
-Default stepper use the enumeration `StepperModel`
+*Default stepper* use the enumeration `StepperModel`
 
 #### StepperModel
 A `StepperModel` is a enumeration defined with these properties:
@@ -168,6 +168,8 @@ func stepper(dataForRowAtIndexPath indexPath: NSIndexPath) -> StepperModel.ViewM
 
 `defaultDelegate` is a protocol used to retrieve data entered in the stepper
 
+`resultStepper` function called when switching from stepper to another
+
 ```swift
 // Conforming to the DefaultStepperDelegate
 stepperView.defaultDelegate = self
@@ -178,6 +180,82 @@ extension ExampleViewController: DefaultStepperDelegate {
     }
 }
 ```
+
+### Custom stepper
+
+*Custom stepper* use your custom view
+
+#### CustomStepperDataSource
+
+To generate a custom stepper, you first need to subclass `CustomStepperDataSource`
+
+```swift
+// Conforming to the CustomStepperDataSource
+stepperView.customDataSource = self
+
+// titles: contains the list of title which will be displayed
+func numberOfRowsInStepper() -> Int {
+    return titles.count
+}
+
+func stepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> UIView? {
+    let customStepperView = ExampleStepperItem()
+    // you can create or return existing view
+    // customize the view
+    return customStepperView
+}
+
+func titleStepper(cellForRowAtIndexPath indexPath: NSIndexPath) -> String? {
+    return titles[indexPath.row]
+}
+```
+
+#### CustomStepperDelegate
+
+`CustomStepperDelegate` is a protocol used to retrieve the view in the stepper
+
+`resultStepper` function called when switching from stepper to another
+
+```swift
+// Conforming to the CustomStepperDelegate
+stepperView.customDelegate = self
+
+func resultStepper(viewAtIndexPath indexPath: NSIndexPath, view: UIView?) {
+    if let customStepperView = view as? MyView {
+        print("Index of custom stepper view : \(indexPath.row)")
+    }
+}
+```
+You can return the view of stepper manually
+
+```swift
+let customViewAtIndexPath = stepperView.customViewFromStepper(indexPath: IndexPath(row: 0, section: 0))
+```
+
+### Common function
+
+```swift
+//You can switch from one stepper to another manually
+// to move to the next stepper
+stepperView.nextStepper()
+
+// to move to the previous stepper
+stepperView.previousStepper()
+
+// check if it's the last stepper
+stepperView.isLastStepper()
+
+// number of stepper on stepper view
+stepperView.numberOfStepper()
+
+// reload Data of stepper view
+stepperView.reloadData()
+
+// index of the selected stepper
+stepperView.selectedIndex()
+```
+
+
 
 ## Installation
 
