@@ -28,7 +28,7 @@
 
 ## Usage
 
-You can implement the stepper using the **storyboard** or with **code**
+You can implement the stepper using the **storyboard** or **programmatically**
 
 ### Storyboard
 - Go to **.storyboard** and add a **blank UIView**
@@ -39,7 +39,7 @@ You can implement the stepper using the **storyboard** or with **code**
   <img src="https://github.com/azizHamadi/StepperViewSwift/blob/readme-version-1/Images/Custom%20class.png?raw=true" alt="screenshot" />
 </p>
 
-### Code
+### Programmatically
 ```swift
 import StepperViewSwift
 
@@ -52,7 +52,7 @@ view.addSubview(stepper)
 
 ## Customization
 
-You can customize the color, stepper size, and the color of the selected icon from the inspector as well as from the code 
+You can customize the color, stepper size and selected icon color from the inspector as well as programmatically 
 
 ### Inspector
 
@@ -60,7 +60,7 @@ You can customize the color, stepper size, and the color of the selected icon fr
   <img src="https://github.com/azizHamadi/StepperViewSwift/blob/readme-version-1/Images/stepperViewConfig.gif?raw=true" alt="screenshot" height="558" width="507" />
 </p>
 
-### Code 
+### Programmatically 
 
 ```swift
 // widthLinearStepperView is the size of the vertical line view of the stepper
