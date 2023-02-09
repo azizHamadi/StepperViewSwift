@@ -16,9 +16,19 @@
   <img src="https://github.com/azizHamadi/StepperViewSwift/blob/readme-version-1/Images/defaultStepperView.gif?raw=true" alt="screenshot" height="591" width="289" />
 </p>
 
-<p align="center">
-    <a href="#requirements">Requirements</a> • <a href="#usage">Usage</a> • <a href="#installation">Installation</a> • <a href="#contribution">Contribution</a> • <a href="#contact">Contact</a> • <a href="#license-mit">License</a>
-</p>
+- [Requirements](#requirements)
+- [Usage](#usage)
+  - [Initialization](#initialization)
+  - [Customization](#customization)
+  - [Implementation](#implementation)
+    - [Default stepper](#default-stepper)
+    - [Custom stepper](#custom-stepper)
+    - [Common function](#common-function)
+- [Installation](#installation)
+- [Contribution](#contribution)
+- [Contact](#contact)
+- [License](#license-mit)
+
 
 ## Requirements
 
@@ -28,7 +38,9 @@
 
 ## Usage
 
-You can implement the stepper using the **storyboard** or **programmatically**
+### Initialization
+
+You can initialize the stepper using the **storyboard** or **programmatically**
 
 ### Storyboard
 - Go to **.storyboard** and add a **blank UIView**
@@ -254,8 +266,6 @@ stepperView.reloadData()
 // index of the selected stepper
 stepperView.selectedIndex()
 ```
-
-
 
 ## Installation
 
