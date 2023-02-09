@@ -10,7 +10,7 @@
 
 ## Overview
 
-**StepperViewSwift** is the stepper UI framework. This release includes a dynamic stepper model, including the ability to create your own stepper, use auto-size stack views and table views instead of sizing cells, 100% fast, and more. The result is a much simpler, easier to use, more powerful and easier to maintain stepper. This framework is currently used by the [BubbleYou](https://apps.apple.com/id/app/bubbleyou/id1559384388) iOS application in the quiz, voting and poll module.
+**StepperViewSwift** is the stepper UI framework. This release includes a dynamic stepper model, including the ability to create your own stepper, use auto-size stack views and table views instead of sizing cells, 100% fast, and more. The result is a much simpler, easier to use, more powerful and easier to maintain stepper. This framework is currently used by the [BubbleYou](https://apps.apple.com/id/app/bubbleyou/id1559384388) iOS application in the quiz, voting and survey module.
 
 <p align="center">
   <img src="https://github.com/azizHamadi/StepperViewSwift/blob/readme-version-1/Images/defaultStepperView.gif?raw=true" alt="screenshot" height="591" width="289" />
@@ -58,6 +58,44 @@ view.addSubview(stepper)
 <p align="center">
   <img src="https://github.com/azizHamadi/StepperViewSwift/blob/readme-version-1/Images/stepperParam.jpg?raw=true" alt="screenshot" height="469" width="516" />
 </p>
+
+## Installation
+
+#### CocoaPods
+
+Install CocoaPods if not already available:
+
+``` bash
+$ [sudo] gem install cocoapods
+$ pod setup
+```
+Go to the directory of your Xcode project, and Create and Edit your *Podfile* and add _StepperViewSwift_:
+
+``` bash
+$ cd /path/to/MyProject
+$ pod init
+$ open -a Xcode Podfile
+source 'https://github.com/CocoaPods/Specs.git'
+
+# Comment the next line if you don't want to use dynamic frameworks
+use_frameworks!
+
+pod 'StepperViewSwift'
+```
+
+Install into your project:
+
+``` bash
+$ pod install
+```
+
+Open your project in Xcode from the .xcworkspace file (not the usual project file):
+
+``` bash
+$ open MyProject.xcworkspace
+```
+
+You can now `import StepperViewSwift` framework into your files.
 
 ## License (MIT)
 
