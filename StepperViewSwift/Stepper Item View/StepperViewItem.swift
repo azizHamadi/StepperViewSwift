@@ -28,18 +28,14 @@ class StepperViewItem: UIView {
     @IBOutlet weak var circleStepperView: UIView! {
         didSet {
             circleStepperView.layer.cornerRadius = circleStepperView.frame.height / 2
-            circleStepperView.layer.borderColor = circleBorderColor.cgColor
+            circleStepperView.layer.borderColor = borderStepperColor.cgColor
             circleStepperView.layer.borderWidth = 2
             circleStepperView.layer.masksToBounds = false
             circleStepperView.clipsToBounds = true
             circleStepperView.backgroundColor = .clear
         }
     }
-    @IBOutlet weak var heightCircleStepperView: NSLayoutConstraint! {
-        didSet {
-            
-        }
-    }
+    @IBOutlet weak var heightCircleStepperView: NSLayoutConstraint!
     @IBOutlet weak var questionNumber: UILabel!
     @IBOutlet weak var checkMark: UIImageView! {
         didSet {
@@ -93,7 +89,6 @@ class StepperViewItem: UIView {
     }
     @IBOutlet weak var widthLinearStepperView: NSLayoutConstraint!
     @IBOutlet weak var hightResponseTableView: NSLayoutConstraint!
-    var isCustomStepperView = false
     var titleFont: UIFont = .systemFont(ofSize: 20) {
         didSet {
             questionTitle.font = titleFont
@@ -114,33 +109,28 @@ class StepperViewItem: UIView {
             questionDescription.textColor = descriptionColor
         }
     }
-    var widthLinearStepper: Int = 3 {
+    var widthLinearStepper = 3 {
         didSet {
             widthLinearStepperView.constant = CGFloat(widthLinearStepper)
         }
     }
-    var heightCircleView: Int = 42 {
+    var stepperSize = 42 {
         didSet {
-            heightCircleStepperView.constant = CGFloat(heightCircleView)
+            heightCircleStepperView.constant = CGFloat(stepperSize)
             if !isCustomRadius {
-                radiusCercleView = CGFloat(heightCircleView) / 2
+                stepperRadius = CGFloat(stepperSize) / 2
             }
         }
     }
-    var isCustomRadius = false
-    var pendingCircleColor: UIColor! {
-        didSet {
-            
-        }
-    }
-    var circleBorderColor: UIColor = .blue {
+    var isCustomRadius = Bool()
+    var borderStepperColor: UIColor = .blue {
         didSet {
             if circleColor == nil {
-                circleColor = circleBorderColor
+                circleColor = borderStepperColor
             }
-            circleStepperView.layer.borderColor = circleBorderColor.cgColor
-            linearStepperView.backgroundColor = circleBorderColor
-            questionNumber.textColor = circleBorderColor
+            circleStepperView.layer.borderColor = borderStepperColor.cgColor
+            linearStepperView.backgroundColor = borderStepperColor
+            questionNumber.textColor = borderStepperColor
         }
     }
     var circleColor: UIColor! {
@@ -148,7 +138,7 @@ class StepperViewItem: UIView {
             circleStepperView.backgroundColor = circleColor
         }
     }
-    var isSelected = false {
+    var isSelected = Bool() {
         didSet {
             questionTitle.alpha = isSelected ? 1 : ( isPending ? 0.3 : 0.5)
             UIView.animate(withDuration: isSelected ? 1 : 0.2, delay: 0,
@@ -177,7 +167,7 @@ class StepperViewItem: UIView {
                 questionNumber.isHidden = false
                 checkMark.isHidden = true
                 circleStepperView.backgroundColor = .clear
-                circleStepperView.layer.borderColor = circleBorderColor.cgColor
+                circleStepperView.layer.borderColor = borderStepperColor.cgColor
             }
         }
     }
@@ -188,21 +178,21 @@ class StepperViewItem: UIView {
             questionTitle.alpha = isSelected ? 1 : ( isPending ? 0.3 : 0.5)
         }
     }
-    var iconCercleStepper: UIImage = UIImage(named: "checkmark", in: Bundle(for: StepperViewItem.self), compatibleWith: nil)!
+    var iconStepperView = UIImage(named: "checkmark", in: Bundle(for: StepperViewItem.self), compatibleWith: nil)!
         .withRenderingMode(.alwaysTemplate) {
         didSet {
-            checkMark.image = iconCercleStepper
+            checkMark.image = iconStepperView
             checkMark.image = checkMark.image?.withRenderingMode(.alwaysTemplate)
         }
     }
-    var iconColorCercleStepper: UIColor = .white {
+    var iconColorStepperView: UIColor = .white {
         didSet {
-            checkMark.tintColor = iconColorCercleStepper
+            checkMark.tintColor = iconColorStepperView
         }
     }
-    var radiusCercleView: CGFloat = 21 {
+    var stepperRadius: CGFloat = 21 {
         didSet {
-            circleStepperView.layer.cornerRadius = radiusCercleView
+            circleStepperView.layer.cornerRadius = stepperRadius
         }
     }
     var actionIconColor: UIColor = .systemBlue
