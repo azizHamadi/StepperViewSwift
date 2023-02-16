@@ -73,70 +73,70 @@ public protocol DefaultStepperDelegate: AnyObject {
             }
         }
     }
-    @IBInspectable public var heightCircleView: Int = 42 {
+    @IBInspectable public var stepperSize: Int = 42 {
         didSet {
             if numberOfRowsInStepper > 0 {
                 for stepperIndex in 0...numberOfRowsInStepper-1 {
-                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.heightCircleView = heightCircleView
+                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.stepperSize = stepperSize
                 }
             }
         }
     }
-    @IBInspectable public var radiusCercleView: CGFloat = 21 {
+    @IBInspectable public var stepperRadius: CGFloat = 21 {
         didSet {
             isCustomRadius = true
             if numberOfRowsInStepper > 0 {
                 for stepperIndex in 0...numberOfRowsInStepper-1 {
-                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.radiusCercleView = radiusCercleView
+                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.stepperRadius = stepperRadius
                 }
             }
         }
     }
-    @IBInspectable public var circleColor: UIColor = .systemBlue {
+    @IBInspectable public var stepperColor: UIColor = .systemBlue {
         didSet {
             isDefaultCircleColor = false
             if numberOfRowsInStepper > 0 {
                 for stepperIndex in 0...numberOfRowsInStepper-1 {
-                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.circleColor = circleColor
+                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.circleColor = stepperColor
                 }
             }
         }
     }
-    @IBInspectable public var borderCircleColor: UIColor = .systemBlue {
+    @IBInspectable public var borderStepperColor: UIColor = .systemBlue {
         didSet {
             if isDefaultCircleColor {
-                circleColor = borderCircleColor
+                stepperColor = borderStepperColor
             }
             if numberOfRowsInStepper > 0 {
                 for stepperIndex in 0...numberOfRowsInStepper-1 {
-                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.circleBorderColor = borderCircleColor
+                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.borderStepperColor = borderStepperColor
                 }
             }
         }
     }
-    @IBInspectable public var enableCircleInteraction: Bool = true {
+    @IBInspectable public var isStepperInteraction: Bool = true {
         didSet {
             if numberOfRowsInStepper > 0 {
                 for stepperIndex in 0...numberOfRowsInStepper-1 {
-                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.isUserInteractionEnabled = enableCircleInteraction
+                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.isUserInteractionEnabled = isStepperInteraction
                 }
             }
         }
     }
-    @IBInspectable public var iconCercleView: UIImage = UIImage(named: "checkmark", in: Bundle(for: Stepper.self), compatibleWith: nil)! {
+    @IBInspectable public var iconStepperView: UIImage = UIImage(named: "checkmark", in: Bundle(for: Stepper.self), compatibleWith: nil)! {
         didSet {
             if numberOfRowsInStepper > 0 {
                 for stepperIndex in 0...numberOfRowsInStepper-1 {
-                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.iconCercleStepper = iconCercleView
+                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.iconStepperView = iconStepperView
                 }
             }
         }
     }
-    @IBInspectable public var iconColorCercle: UIColor = .white {
+    @IBInspectable public var iconColorStepperView: UIColor = .white {
         didSet {
             if numberOfRowsInStepper > 0 {
                 for stepperIndex in 0...numberOfRowsInStepper-1 {
-                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.iconColorCercleStepper = iconColorCercle
+                    (mainStackView.arrangedSubviews[stepperIndex] as? StepperViewItem)?.iconColorStepperView = iconColorStepperView
                 }
             }
         }
@@ -208,20 +208,19 @@ public protocol DefaultStepperDelegate: AnyObject {
 
     private func createStepperView(index: Int) -> StepperViewItem {
         let stepperViewItem = StepperViewItem()
-        stepperViewItem.circleColor = circleColor
-        stepperViewItem.circleBorderColor = borderCircleColor
-        stepperViewItem.heightCircleView = heightCircleView
+        stepperViewItem.circleColor = stepperColor
+        stepperViewItem.borderStepperColor = borderStepperColor
+        stepperViewItem.stepperSize = stepperSize
         stepperViewItem.widthLinearStepper = widthLinearStepperView
-        stepperViewItem.iconCercleStepper = iconCercleView
-        stepperViewItem.iconColorCercleStepper = iconColorCercle
+        stepperViewItem.iconStepperView = iconStepperView
+        stepperViewItem.iconColorStepperView = iconColorStepperView
         stepperViewItem.titleColor = titleColor
         stepperViewItem.titleFont = titleFont
         stepperViewItem.descriptionFont = descriptionFont
         stepperViewItem.descriptionColor = descriptionColor
         stepperViewItem.actionIconColor = actionIconColor
-        stepperViewItem.isCustomStepperView = customDelegate != nil
         if isCustomRadius {
-            stepperViewItem.radiusCercleView = radiusCercleView
+            stepperViewItem.stepperRadius = stepperRadius
             stepperViewItem.isCustomRadius = isCustomRadius
         }
         let view = customDataSource?.stepper(cellForRowAtIndexPath: NSIndexPath(row: index, section: 0))
@@ -229,7 +228,7 @@ public protocol DefaultStepperDelegate: AnyObject {
         let title = customDataSource?.titleStepper(cellForRowAtIndexPath: NSIndexPath(row: index, section: 0))
         stepperViewItem.createStepper(stepperData: data, index: index+1, isSelected: index == 0, stepperBody: view, title: title)
         stepperViewItem.linearStepperView.isHidden = index == numberOfRowsInStepper-1
-        stepperViewItem.isUserInteractionEnabled = enableCircleInteraction
+        stepperViewItem.isUserInteractionEnabled = isStepperInteraction
         stepperViewItem.circleStepperView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleStepperView(_:))))
         return stepperViewItem
     }
@@ -335,18 +334,18 @@ extension Stepper {
     }
     private func createStepperViewForInterfaceBuilder(index: Int, data: StepperModel.ViewModel, count: Int) -> StepperViewItem {
         let stepperViewItem = StepperViewItem()
-        stepperViewItem.circleColor = circleColor
-        stepperViewItem.circleBorderColor = borderCircleColor
-        stepperViewItem.heightCircleView = heightCircleView
+        stepperViewItem.circleColor = stepperColor
+        stepperViewItem.borderStepperColor = borderStepperColor
+        stepperViewItem.stepperSize = stepperSize
         stepperViewItem.widthLinearStepper = widthLinearStepperView
-        stepperViewItem.iconCercleStepper = iconCercleView
-        stepperViewItem.iconColorCercleStepper = iconColorCercle
+        stepperViewItem.iconStepperView = iconStepperView
+        stepperViewItem.iconColorStepperView = iconColorStepperView
         stepperViewItem.titleColor = titleColor
         stepperViewItem.titleFont = titleFont
         stepperViewItem.descriptionFont = descriptionFont
         stepperViewItem.descriptionColor = descriptionColor
         if isCustomRadius {
-            stepperViewItem.radiusCercleView = radiusCercleView
+            stepperViewItem.stepperRadius = stepperRadius
             stepperViewItem.isCustomRadius = isCustomRadius
         }
         stepperViewItem.createStepper(stepperData: data, index: index+1, isSelected: index == 1, stepperBody: nil)

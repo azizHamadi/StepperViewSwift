@@ -11,7 +11,6 @@ class ResponseTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     @IBOutlet weak var mainView: UIView! {
