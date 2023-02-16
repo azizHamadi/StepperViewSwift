@@ -69,7 +69,7 @@ You can customize the color, stepper size and selected icon color from the inspe
 ### Inspector
 
 <p align="center">
-  <img src="https://github.com/azizHamadi/StepperViewSwift/blob/readme-version-1/Images/stepperViewConfig.gif?raw=true" alt="screenshot" height="558" width="507" />
+  <img src="https://github.com/azizHamadi/StepperViewSwift/blob/readme-version-1/Images/stepperViewConfig.gif?raw=true" alt="screenshot" />
 </p>
 
 ### Programmatically 
@@ -78,27 +78,27 @@ You can customize the color, stepper size and selected icon color from the inspe
 // widthLinearStepperView is the size of the vertical line view of the stepper
 stepperView.widthLinearStepperView = 5
 
-// heightCircleView is the stepper circle size
-stepperView.heightCircleView = 60
+// stepperSize is the stepper circle size
+stepperView.stepperSize = 60
 
-// radiusCercleView is the corner radius of the stepper circle
-stepperView.radiusCercleView = 15
+// stepperRadius is the corner radius of the stepper circle
+stepperView.stepperRadius = 15
 
-// circleColor is the stepper circle color
-stepperView.circleColor = .red
+// stepperColor is the stepper circle color
+stepperView.stepperColor = .red
 
-// borderCircleColor is the border color of the stepper and line view circle
-stepperView.borderCircleColor = .black
+// borderStepperColor is the border color of the stepper and line view circle
+stepperView.borderStepperColor = .black
 
-// iconCircleView is the stepper circle icon
-stepperView.iconCercleView = UIImage(named: "iconStepper")!
+// iconStepperView is the stepper circle icon
+stepperView.iconStepperView = UIImage(named: "iconStepper")!
 
-// iconColorCircle is the icon color of the stepper circle
-stepperView.iconColorCercle = .systemIndigo
+// iconColorStepperView is the icon color of the stepper circle
+stepperView.iconColorStepperView = .systemIndigo
 
-// enableCircleInteraction to enable/disable interaction with stepper circles
-// default: enableCircleInteraction = true -> hide and show stepper content when clicking on stepper circles
-stepperView.enableCircleInteraction = false
+// isStepperInteraction to enable/disable interaction with stepper circles
+// default: isStepperInteraction = true -> hide and show stepper content when clicking on stepper circles
+stepperView.isStepperInteraction = false
 ```
 You can change the font of the title and description as well as their colors, customize the color of checkbox and radiobox
 
