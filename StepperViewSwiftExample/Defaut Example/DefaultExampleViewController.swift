@@ -14,6 +14,7 @@ class DefaultExampleViewController: UIViewController {
     }
     
     let data: [StepperModel.ViewModel] = [ StepperModel.ViewModel(title: "Which of the following is NOT a primary color of light?",
+                                                                  description: "The colours which cannot be obtained by mixing of two or more colours are called primary colours",
                                                                   type: .radiobox,
                                                                   responseList: [ ResponseItem(responseText: "Red"),
                                                                                   ResponseItem(responseText: "Green"),
@@ -73,11 +74,12 @@ A short 3-5 sentence paragraph that summarizes your career. It covers your main 
     @IBAction func nextAction(_ sender: Any) {
         if stepperView.isLastStepper() {
             let alert = UIAlertController(title: "Congratulations", message: "You have completed the stepper", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.stepperView.reloadData()
+            }))
             present(alert, animated: true)
-        } else {
-            stepperView.nextStepper()
         }
+        stepperView.nextStepper()
     }
     
     @IBAction func backAction(_ sender: Any) {
