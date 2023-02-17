@@ -40,18 +40,19 @@
 
 ### Initialization
 
-You can initialize the stepper using the **storyboard** or **programmatically**
+You can initialize the stepper by using **code** or **storyboard**
 
 ### Storyboard
-- Go to **.storyboard** and add a **blank UIView**
-- Open the **Identity Inspector** and type '**Stepper**' in the '**class**' field
-- Make sure you have '**StepperViewSwift**' selected in '**Module**' field
+Go to **.storyboard** and add a **blank UIView**, set the view class to 'Stepper' in the Identity Inspector
+
+Make sure that you select the
+'StepperViewSwift' in the 'Module' field
 
 <p align="center">
   <img src="https://github.com/azizHamadi/StepperViewSwift/blob/readme-version-1/Images/Custom%20class.png?raw=true" alt="screenshot" />
 </p>
 
-### Programmatically
+### Code
 ```swift
 import StepperViewSwift
 
@@ -64,7 +65,7 @@ view.addSubview(stepper)
 
 ## Customization
 
-You can customize the color, stepper size and selected icon color from the inspector as well as programmatically 
+You can customize the color, stepper size and selected icon color from the inspector as well by code 
 
 ### Inspector
 
@@ -72,7 +73,7 @@ You can customize the color, stepper size and selected icon color from the inspe
   <img src="https://github.com/azizHamadi/StepperViewSwift/blob/readme-version-1/Images/stepperViewConfig.gif?raw=true" alt="screenshot" />
 </p>
 
-### Programmatically 
+### Code 
 
 ```swift
 // widthLinearStepperView is the size of the vertical line view of the stepper
